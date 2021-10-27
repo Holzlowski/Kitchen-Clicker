@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -433,26 +433,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1821616385, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
-      propertyPath: ingredientPrefab
-      value: 
-      objectReference: {fileID: 7492759864892193849, guid: cf7b1355726246040850bdd44b07d5cc, type: 3}
-    - target: {fileID: 1821616388, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
-      propertyPath: m_Mass
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1821616388, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
-      propertyPath: m_Constraints
-      value: 94
-      objectReference: {fileID: 0}
-    - target: {fileID: 1821616388, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 65697650029848121, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
-      propertyPath: m_Size.y
-      value: 0.038
-      objectReference: {fileID: 0}
     - target: {fileID: 6055626563169235420, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -501,17 +481,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pizza
       objectReference: {fileID: 0}
-    - target: {fileID: 6864111363844696934, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
-      propertyPath: m_TagString
-      value: Pizza
-      objectReference: {fileID: 0}
-    - target: {fileID: 7141549120573945999, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8407924909680900558, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -2432090755550338912, guid: d9c0471909c364551b719e987b30ccf0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}

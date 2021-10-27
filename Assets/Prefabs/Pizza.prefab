@@ -9,12 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6055626563169235420}
-  - component: {fileID: 65697650029848121}
   - component: {fileID: 1821616385}
   - component: {fileID: 1821616388}
+  - component: {fileID: 65697650029848121}
+  - component: {fileID: 1439443539}
+  - component: {fileID: 1439443540}
   m_Layer: 0
   m_Name: Pizza
-  m_TagString: Ingredient
+  m_TagString: Pizza
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,19 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &65697650029848121
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6864111363844696934}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.76, y: 0.07, z: 0.76}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1821616385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3217ddb335659f4e90aa1be01958854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientPrefab: {fileID: 2753856772502529702, guid: cf7b1355726246040850bdd44b07d5cc, type: 3}
+  ingredientPrefab: {fileID: 7492759864892193849, guid: cf7b1355726246040850bdd44b07d5cc, type: 3}
   distanceToCamera: 0.85
   degreesPerSecond: 20
   fallingDistance: 0.5
@@ -71,14 +60,53 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6864111363844696934}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 2
+  m_Constraints: 94
+  m_CollisionDetection: 1
+--- !u!65 &65697650029848121
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6864111363844696934}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61, y: 0.038, z: 0.52}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &1439443539
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6864111363844696934}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.36, y: 0.038, z: 0.68}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &1439443540
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6864111363844696934}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.68, y: 0.038, z: 0.36}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &9153594220621994
 PrefabInstance:
   m_ObjectHideFlags: 0
