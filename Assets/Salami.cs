@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Salami : MonoBehaviour
 {
-    Collider collider;
-    Rigidbody rigidbody;
+    private Collider collider;
+    private Rigidbody rigidbody;
     bool isOnPizza = false;
 
     // Start is called before the first frame update
@@ -29,7 +29,7 @@ public class Salami : MonoBehaviour
             rigidbody.constraints = RigidbodyConstraints.FreezeAll;
         }
 
-        if(other.transform.tag == "Ingredient" && isOnPizza = false){
+        if(other.transform.tag.Equals("Ingredient") && isOnPizza == false){
             Destroy(gameObject);
         }
     }
