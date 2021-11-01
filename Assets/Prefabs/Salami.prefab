@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5043246156196457353}
   - component: {fileID: 6087098482171923965}
   - component: {fileID: -5990964609004090859}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Salami
   m_TagString: Ingredient
   m_Icon: {fileID: 0}
@@ -129,6 +129,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 301f5d75ee70b40da8a800efb750e9fc, type: 3}
       propertyPath: m_Name
       value: Salami
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 301f5d75ee70b40da8a800efb750e9fc, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 301f5d75ee70b40da8a800efb750e9fc, type: 3}

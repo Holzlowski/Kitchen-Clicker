@@ -6,6 +6,8 @@ public class Salami : MonoBehaviour
 {
     Collider collider;
     Rigidbody rigidbody;
+    bool isOnPizza = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +23,13 @@ public class Salami : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision other) {
-        
-        if(other.transform.tag.Equals("Pizza")){
 
+        if(other.transform.tag.Equals("Pizza")){
+            isOnPizza = true;
             rigidbody.constraints = RigidbodyConstraints.FreezeAll;
         }
 
-        if(other.transform.tag == "Ingredient"){
+        if(other.transform.tag == "Ingredient" && isOnPizza = false){
             Destroy(gameObject);
         }
     }
