@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7831884866752063107}
   - component: {fileID: 5043246156196457353}
   - component: {fileID: 6087098482171923965}
-  - component: {fileID: -5990964609004090859}
   m_Layer: 2
   m_Name: Salami
   m_TagString: Ingredient
@@ -63,18 +62,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.02, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-5990964609004090859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7492759864892193849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 720cd0c055a6f644db989847873dbeb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1885511343694413539
 PrefabInstance:
   m_ObjectHideFlags: 0
