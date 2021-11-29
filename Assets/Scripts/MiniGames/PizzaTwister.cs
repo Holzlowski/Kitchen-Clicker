@@ -48,6 +48,7 @@ namespace MiniGames
             if (Input.GetMouseButtonDown(0))
             {
                 Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+                Debug.DrawRay(ray.origin, ray.direction, Color.black, 100);
 
                 if (Physics.Raycast(ray, out RaycastHit hit))
                 {
