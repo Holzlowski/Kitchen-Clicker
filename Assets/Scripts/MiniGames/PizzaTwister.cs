@@ -10,7 +10,6 @@ namespace MiniGames
         [SerializeField] private float degreesPerSecond = 20f;
         [SerializeField] private float fallingDistance = 0.5f;
 
-
         private Camera mainCamera;
 
         // Start is called before the first frame update
@@ -55,6 +54,7 @@ namespace MiniGames
                     if (hit.transform.CompareTag("Pizza"))
                     {
                         Vector3 fallingPosition = new Vector3(hit.point.x, hit.point.y + fallingDistance, hit.point.z);
+                        // TODO: scale this list of different ingredients
                         Instantiate(ingredientPrefab, fallingPosition, Quaternion.identity);
                     }
                 }
