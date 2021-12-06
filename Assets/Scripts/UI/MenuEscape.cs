@@ -7,7 +7,9 @@ namespace UI
         private void Update()
         {
             if (Input.GetButtonDown("Cancel"))
-                gameObject.SetActive(false);
+                CloseWindow();
         }
+
+        public void CloseWindow() => gameObject.SetActive(false);
     }
 }
