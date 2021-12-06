@@ -4,9 +4,10 @@ namespace MiniGames
 {
     public class Ingredient : MonoBehaviour
     {
-        [SerializeField] private int cost;
+        [SerializeField] private IngredientType type;
+
+        public IngredientType Type => type;
 
         public bool IsInPlace { get; set; }
-        public int Cost => cost; 
     }
 }
