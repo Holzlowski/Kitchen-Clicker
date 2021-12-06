@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class Pizza : MonoBehaviour
 {
-    [SerializeField] public int slotCount = 5;
+    [SerializeField] private float spawnRadius = 1;
+    [SerializeField] private int slotCount = 5;
     [SerializeField] private float minDist;
     [SerializeField] private int maxAttempts;
     [SerializeField] GameObject slotPrefab; // TODO add a specific type for this
@@ -36,8 +37,8 @@ public class Pizza : MonoBehaviour
             var attempts = 0;
             while (attempts < maxAttempts)
             {
-                var circlePos = Random.insideUnitCircle * 0.25f;
-                spawnPos = new Vector3(circlePos.x, 0.02f, circlePos.y);
+                var circlePos = Random.insideUnitCircle * spawnRadius;
+                spawnPos = new Vector3(circlePos.x, 0.175f, circlePos.y);
                 var ok = true;
                 foreach (var slot in slotCoords)
                 {
@@ -58,9 +59,14 @@ public class Pizza : MonoBehaviour
             }
 
             slotCoords.Add(spawnPos);
-            var slotGO = Instantiate(slotPrefab, spawnPos, Quaternion.identity, this.transform);
+            var slotGO = Instantiate(slotPrefab, spawnPos, Quaternion.identity, transform);
             slotGO.SetActive(true);
             slots.Add(slotGO);
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, spawnRadius);
     }
 }

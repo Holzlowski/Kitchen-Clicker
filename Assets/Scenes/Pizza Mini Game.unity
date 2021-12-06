@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -304,7 +304,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.85, z: 0}
+  m_LocalPosition: {x: 0, y: 7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -488,22 +488,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 552320254123792193, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 552320254123792193, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 552320254123792193, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 552320254123792193, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
     - target: {fileID: 603546014755695668, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -568,25 +552,13 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 6055626563169235420, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055626563169235420, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055626563169235420, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6864111363844696934, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
       propertyPath: m_Name
       value: Pizza
       objectReference: {fileID: 0}
     - target: {fileID: 8071127611716899527, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
-      propertyPath: minDist
-      value: 0.07
+      propertyPath: pizzaRadius
+      value: 2.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}

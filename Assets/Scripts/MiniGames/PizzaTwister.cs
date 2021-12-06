@@ -44,19 +44,18 @@ namespace MiniGames
 
         private void IngredientSpawnWithClick()
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-                Debug.DrawRay(ray.origin, ray.direction, Color.black, 100);
+            if (!Input.GetMouseButtonDown(0)) return;
 
-                if (Physics.Raycast(ray, out RaycastHit hit))
+            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            Debug.DrawRay(ray.origin, ray.direction, Color.black, 100);
+
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                if (hit.transform.CompareTag("Pizza"))
                 {
-                    if (hit.transform.CompareTag("Pizza"))
-                    {
-                        Vector3 fallingPosition = new Vector3(hit.point.x, hit.point.y + fallingDistance, hit.point.z);
-                        // TODO: scale this list of different ingredients
-                        Instantiate(ingredientPrefab, fallingPosition, Quaternion.identity);
-                    }
+                    Vector3 fallingPosition = new Vector3(hit.point.x, hit.point.y + fallingDistance, hit.point.z);
+                    // TODO: scale this list of different ingredients
+                    Instantiate(ingredientPrefab, fallingPosition, Quaternion.identity);
                 }
             }
         }
