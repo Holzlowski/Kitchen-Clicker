@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2106018147122855612}
   - component: {fileID: 2173751803664279043}
   m_Layer: 0
-  m_Name: broccoli
+  m_Name: Broccoli
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

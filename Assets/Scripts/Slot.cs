@@ -5,17 +5,21 @@ public class Slot : MonoBehaviour
 {
     public Pizza pizza;
     public Wallet wallet;
+    [SerializeField] private Ingredient ingredientType;
+
+    public void Initialize(Ingredient ingredientType) => this.ingredientType = ingredientType;
 
     private void OnTriggerEnter(Collider other)
     {
         var ingredient = other.GetComponent<Ingredient>();
-        if (ingredient == null)
+        if (ingredient == null || !ingredient.name.Contains(ingredientType.name))
         {
             Destroy(other.gameObject);
             return;
         }
 
-        if (ingredient.IsInPlace) {
+        if (ingredient.IsInPlace)
+        {
             return;
         }
 

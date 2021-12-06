@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using MiniGames;
 using UnityEngine;
 
 public class Pizza : MonoBehaviour
@@ -7,9 +8,11 @@ public class Pizza : MonoBehaviour
     [SerializeField] private int slotCount = 5;
     [SerializeField] private float minDist;
     [SerializeField] private int maxAttempts;
-    [SerializeField] GameObject slotPrefab; // TODO add a specific type for this
-    [SerializeField] List<Vector3> slotCoords = new List<Vector3>();
-    [SerializeField] List<GameObject> slots = new List<GameObject>();
+    [SerializeField] private Slot slotPrefab;
+    [SerializeField] private List<Vector3> slotCoords = new List<Vector3>();
+    [SerializeField] private List<Slot> slots = new List<Slot>();
+    [SerializeField] private Recipe recipe;
+    [SerializeField] private Wallet wallet; // TODO: Refactor wallet access here and in Slot.cs
 
     private int slotHits = 0;
 
@@ -18,10 +21,12 @@ public class Pizza : MonoBehaviour
 
     private void Update()
     {
-        if (slotHits == slotCount)
-        {
-            Debug.Log("finished");
-        }
+        if (slotHits != slotCount)
+            return;
+
+        Debug.Log("finished");
+        wallet.AddMoney(recipe.Bonus);
+        // TODO: Fix looping for infinite bonus
     }
 
     public void AddHit()
@@ -59,9 +64,10 @@ public class Pizza : MonoBehaviour
             }
 
             slotCoords.Add(spawnPos);
-            var slotGO = Instantiate(slotPrefab, spawnPos, Quaternion.identity, transform);
-            slotGO.SetActive(true);
-            slots.Add(slotGO);
+            var slotInstance = Instantiate(slotPrefab, spawnPos, Quaternion.identity, transform);
+            slotInstance.Initialize(recipe.GetRandomIngredient());
+            slotInstance.gameObject.SetActive(true);
+            slots.Add(slotInstance);
         }
     }
 
