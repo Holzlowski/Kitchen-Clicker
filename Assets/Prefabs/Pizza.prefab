@@ -110,6 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pizza: {fileID: 0}
   wallet: {fileID: 0}
+  ingredientType: {fileID: 0}
 --- !u!1 &6864111363844696934
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,9 +236,11 @@ MonoBehaviour:
   slotCount: 10
   minDist: 0.7
   maxAttempts: 500
-  slotPrefab: {fileID: 4168725889126999542}
+  slotPrefab: {fileID: 5414771106982103208}
   slotCoords: []
   slots: []
+  recipe: {fileID: 0}
+  wallet: {fileID: 0}
 --- !u!1001 &9153594220621994
 PrefabInstance:
   m_ObjectHideFlags: 0
