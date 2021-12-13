@@ -278,7 +278,7 @@ StyleCopReport.xml
 *.ilk
 # Commented out since it conflicts with Unity meta files
 # *.meta
-*.obj
+# *.obj
 *.iobj
 *.pch
 *.ipdb
