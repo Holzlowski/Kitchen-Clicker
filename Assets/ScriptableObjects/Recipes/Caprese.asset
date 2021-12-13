@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44be7de4626d43c2a0f159c0c3cbb607, type: 3}
   m_Name: Caprese
   m_EditorClassIdentifier: 
-  ingredients: []
+  ingredients:
+  - {fileID: 11400000, guid: 493f879694926b04184b42b59bff73cb, type: 2}
   bonus: 0

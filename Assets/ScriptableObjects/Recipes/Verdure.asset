@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44be7de4626d43c2a0f159c0c3cbb607, type: 3}
   m_Name: Verdure
   m_EditorClassIdentifier: 
-  ingredients: []
+  ingredients:
+  - {fileID: 11400000, guid: 9e635ff021a411a459614c6e62cb14de, type: 2}
+  - {fileID: 11400000, guid: ea9c0c5a34d63e74190812d3ceec91af, type: 2}
+  - {fileID: 11400000, guid: 1391c04a2a3b14ebb9fdcd74fd401be2, type: 2}
   bonus: 0

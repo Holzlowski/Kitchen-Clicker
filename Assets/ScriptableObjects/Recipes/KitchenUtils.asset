@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44be7de4626d43c2a0f159c0c3cbb607, type: 3}
   m_Name: KitchenUtils
   m_EditorClassIdentifier: 
-  ingredients: []
+  ingredients:
+  - {fileID: 11400000, guid: 157eae8bd4845374eaefd0dc48eeccf8, type: 2}
+  - {fileID: 11400000, guid: c29cf058ad3369846ab492bde69fa34a, type: 2}
+  - {fileID: 11400000, guid: 37144315123c1a244bb404981b89dede, type: 2}
   bonus: 0

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44be7de4626d43c2a0f159c0c3cbb607, type: 3}
   m_Name: PizzaPizza
   m_EditorClassIdentifier: 
-  ingredients: []
+  ingredients:
+  - {fileID: 11400000, guid: b05d942d4996abd4eb0f4ab4e575d7f8, type: 2}
   bonus: 0

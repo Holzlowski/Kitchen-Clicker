@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44be7de4626d43c2a0f159c0c3cbb607, type: 3}
   m_Name: Sweets
   m_EditorClassIdentifier: 
-  ingredients: []
+  ingredients:
+  - {fileID: 11400000, guid: 386302277eb16b34d9c052876dcc58a6, type: 2}
+  - {fileID: 11400000, guid: c15c87d2726b8894b9cbedd20b8a062a, type: 2}
+  - {fileID: 11400000, guid: e818fdd64f717484ab6496278601ae18, type: 2}
   bonus: 0
