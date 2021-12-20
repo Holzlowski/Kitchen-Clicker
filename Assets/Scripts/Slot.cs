@@ -4,7 +4,6 @@ using UnityEngine;
 public class Slot : MonoBehaviour
 {
     public Pizza pizza;
-    public Wallet wallet;
 
     private IngredientType _ingredientType;
 
@@ -26,9 +25,9 @@ public class Slot : MonoBehaviour
 
         pizza.AddHit();
         ingredient.IsInPlace = true;
-        wallet.AddMoney(ingredient.Type.Value);
+        Wallet.AddMoney(ingredient.Type.Value);
         Debug.Log("nice!");
-        Debug.Log(wallet.money);
+        Debug.Log(Wallet.GetBalance());
         Destroy(gameObject);
     }
 }

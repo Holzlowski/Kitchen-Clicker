@@ -12,7 +12,6 @@ public class Pizza : MonoBehaviour
     [SerializeField] private List<Vector3> slotCoords = new List<Vector3>();
     [SerializeField] private List<Slot> slots = new List<Slot>();
     [SerializeField] private Recipe recipe;
-    [SerializeField] private Wallet wallet; // TODO: Refactor wallet access here and in Slot.cs
 
     private int slotHits = 0;
 
@@ -25,7 +24,7 @@ public class Pizza : MonoBehaviour
             return;
 
         Debug.Log("finished");
-        wallet.AddMoney(recipe.Bonus);
+        Wallet.AddMoney(recipe.Bonus);
         // TODO: Fix looping for infinite bonus
     }
 
