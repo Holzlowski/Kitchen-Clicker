@@ -1,4 +1,5 @@
 using PizzaGame;
+using Singletons;
 using UnityEngine;
 
 public class Slot : MonoBehaviour
