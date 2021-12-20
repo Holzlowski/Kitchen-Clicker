@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using PizzaGame;
 using UnityEngine;
@@ -22,6 +23,7 @@ namespace Singletons
         private static KitchenManagement instance;
 
         private List<Recipe> _availableRecipes;
+        // TODO: Add list of other bought items (e.g. cooks, stoves -> passive generators)
 
         private void Awake()
         {
@@ -39,8 +41,19 @@ namespace Singletons
             };
         }
 
+        private void Update()
+        {
+            // TODO: Add loop for passive currency generation based on bought items
+        }
+
         public static void AddRecipe(Recipe recipe) => Instance._availableRecipes.Add(recipe);
 
         public static List<Recipe> GetAvailableRecipes() => Instance._availableRecipes;
+
+        public void GenerateRandomPizza()
+        {
+            // TODO: Generate a random pizza from the list of available recipes
+            throw new NotImplementedException();
+        }
     }
 }
