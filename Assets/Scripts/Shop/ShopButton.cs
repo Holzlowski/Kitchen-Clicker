@@ -25,8 +25,6 @@ namespace Shop
         {
             if (_item.Buy())
                 Destroy(gameObject);
-            else
-                Debug.Log("Not enough money");
         }
     }
 }

@@ -15,7 +15,17 @@ namespace Shop
         public bool Buy()
         {
             if (!Wallet.RemoveMoney(price))
+            {
+                // TODO: Add UI notification
+                Debug.Log("Not enough money");
                 return false;
+            }
+
+            if (buyable == null)
+            {
+                Debug.LogError($"Shop item \"{name}\" doesn't have a reference to a buyable object");
+                return false;
+            }
 
             buyable.Buy();
             return true;

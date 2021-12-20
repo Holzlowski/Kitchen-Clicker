@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Shop
 {
-    public class BuyShop : MonoBehaviour
+    public class ShopItemList : MonoBehaviour
     {
         [SerializeField] private Transform buyButtonView;
         [SerializeField] private ShopButton buyButtonPrefab;
