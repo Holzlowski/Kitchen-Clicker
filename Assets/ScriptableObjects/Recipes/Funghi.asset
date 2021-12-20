@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredients:
   - {fileID: 11400000, guid: 69c88976b18bef44f989a11d7551af09, type: 2}
-  bonus: 0
+  bonus: 10
