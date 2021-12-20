@@ -1,4 +1,4 @@
-using MiniGames;
+using PizzaGame;
 using UnityEngine;
 
 public class Slot : MonoBehaviour

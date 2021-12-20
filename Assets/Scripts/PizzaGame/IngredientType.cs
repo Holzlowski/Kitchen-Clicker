@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGames
+namespace PizzaGame
 {
     [CreateAssetMenu(fileName = "Ingredient", menuName = "ScriptableObjects/Ingredient", order = 0)]
     public class IngredientType : ScriptableObject

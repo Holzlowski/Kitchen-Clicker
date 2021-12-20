@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGames
+namespace PizzaGame
 {
     public class Ingredient : MonoBehaviour
     {
