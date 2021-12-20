@@ -1,7 +1,7 @@
 using Shop;
 using UnityEngine;
 
-namespace MiniGames
+namespace PizzaGame
 {
     [CreateAssetMenu(fileName = "Recipe", menuName = "ScriptableObjects/Recipe", order = 0)]
     public class Recipe : BuyableObject
