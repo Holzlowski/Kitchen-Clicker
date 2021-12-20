@@ -1,9 +1,10 @@
+using Shop;
 using UnityEngine;
 
 namespace PizzaGame
 {
     [CreateAssetMenu(fileName = "Recipe", menuName = "ScriptableObjects/Recipe", order = 0)]
-    public class Recipe : ScriptableObject
+    public class Recipe : BuyableObject
     {
         [SerializeField] private IngredientType[] ingredients;
         [SerializeField] private int bonus;
@@ -12,5 +13,8 @@ namespace PizzaGame
         public int Bonus => bonus;
 
         public IngredientType GetRandomIngredient() => Ingredients[Random.Range(0, Ingredients.Length)];
+
+        // TODO: Implement unlock logic
+        public override void Buy() => Debug.Log("Bought recipe " + name);
     }
 }
