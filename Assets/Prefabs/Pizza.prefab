@@ -110,7 +110,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pizza: {fileID: 0}
   wallet: {fileID: 0}
-  ingredientType: {fileID: 0}
 --- !u!1 &6864111363844696934
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +119,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6055626563169235420}
-  - component: {fileID: 1821616385}
   - component: {fileID: 1821616388}
   - component: {fileID: 65697650029848121}
   - component: {fileID: 1439443539}
@@ -149,22 +147,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1821616385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6864111363844696934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3217ddb335659f4e90aa1be01958854, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientPrefab: {fileID: 7492759864892193849, guid: cf7b1355726246040850bdd44b07d5cc, type: 3}
-  distanceToCamera: 7
-  degreesPerSecond: 20
-  fallingDistance: 0.5
 --- !u!54 &1821616388
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -239,8 +221,12 @@ MonoBehaviour:
   slotPrefab: {fileID: 5414771106982103208}
   slotCoords: []
   slots: []
-  recipe: {fileID: 0}
+  recipe: {fileID: 11400000, guid: 66022f8bf5b1d42c394518dcf39b7744, type: 2}
   wallet: {fileID: 0}
+  ingredientPrefab: {fileID: 0}
+  distanceToCamera: 8.5
+  degreesPerSecond: 20
+  fallingDistance: 0.5
 --- !u!1001 &9153594220621994
 PrefabInstance:
   m_ObjectHideFlags: 0

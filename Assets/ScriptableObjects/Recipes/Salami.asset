@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Salami
   m_EditorClassIdentifier: 
   ingredients:
-  - {fileID: -1021345367111921491, guid: cf7b1355726246040850bdd44b07d5cc, type: 3}
+  - {fileID: 11400000, guid: 9d7d9507f37ec40b5870d99d2295f883, type: 2}
   bonus: 10
