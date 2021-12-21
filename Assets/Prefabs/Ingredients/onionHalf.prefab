@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4188489647434257082}
   - component: {fileID: 1713293708598876219}
   - component: {fileID: -3480871655651871839}
+  - component: {fileID: 6845918153657837293}
   m_Layer: 2
   m_Name: onionHalf
   m_TagString: Ingredient
@@ -113,3 +114,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &6845918153657837293
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2387045605359219567}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.10652109, y: 0.24999997, z: 0.24599998}
+  m_Center: {x: 0.053260546, y: 0.124999985, z: 0}

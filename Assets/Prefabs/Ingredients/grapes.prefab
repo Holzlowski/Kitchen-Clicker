@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7110754943464732528}
   - component: {fileID: 6469701425493826631}
   - component: {fileID: -786778360789936005}
+  - component: {fileID: -5730251242583286726}
   m_Layer: 2
   m_Name: grapes
   m_TagString: Ingredient
@@ -114,3 +115,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &-5730251242583286726
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8768092319753623205}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.27899456, y: 0.42261794, z: 0.23859918}
+  m_Center: {x: 0, y: 0.21130897, z: 0}

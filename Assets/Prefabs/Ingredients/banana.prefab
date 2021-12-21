@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7985877690086419488}
   - component: {fileID: 8683465364005800934}
   - component: {fileID: 8359657248604775797}
+  - component: {fileID: 5421455461850747184}
   m_Layer: 2
   m_Name: banana
   m_TagString: Ingredient
@@ -113,3 +114,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &5421455461850747184
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8490258376389742069}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.13759999, y: 0.1958004, z: 0.62987113}
+  m_Center: {x: 0, y: 0.0979002, z: 0}

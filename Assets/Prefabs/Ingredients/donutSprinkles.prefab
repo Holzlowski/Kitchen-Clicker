@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4011821239471122948}
   - component: {fileID: -1466189591110776167}
   - component: {fileID: -2896326315569746683}
+  - component: {fileID: -893116790700047956}
   m_Layer: 2
   m_Name: donutSprinkles
   m_TagString: Ingredient
@@ -118,6 +119,19 @@ Rigidbody:
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &-2896326315569746683
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7780094616663283486}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2450586, y: 0.09499224, z: 0.28296918}
+  m_Center: {x: 0, y: 0.04749612, z: 0}
+--- !u!65 &-893116790700047956
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3379871106634718047}
   - component: {fileID: 6856877668201074071}
   - component: {fileID: -1608920133161287366}
+  - component: {fileID: 5333447877616527373}
   m_Layer: 2
   m_Name: appleHalf
   m_TagString: Ingredient
@@ -116,3 +117,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: 525725e254beffe44b4fa40aeccf0ce5, type: 2}
+--- !u!65 &5333447877616527373
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3884155310775876234}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.098147266, y: 0.19075337, z: 0.19629453}
+  m_Center: {x: 0.049073633, y: 0.095376685, z: 0}

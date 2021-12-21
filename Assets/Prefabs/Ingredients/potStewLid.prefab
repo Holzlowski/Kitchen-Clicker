@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5825065293691352945}
   - component: {fileID: 2144905141036946615}
   - component: {fileID: 8854849510154332428}
+  - component: {fileID: -8830581270896480844}
   m_Layer: 2
   m_Name: potStewLid
   m_TagString: Ingredient
@@ -114,3 +115,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &-8830581270896480844
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464615076436792996}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.65744936, y: 0.11839999, z: 0.62527156}
+  m_Center: {x: 0, y: 0.059199996, z: 0}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 503822891939769078}
   - component: {fileID: 4896986931855696091}
   - component: {fileID: -1676175022066983010}
+  - component: {fileID: 3854166131512035949}
   m_Layer: 2
   m_Name: carrot
   m_TagString: Ingredient
@@ -113,3 +114,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &3854166131512035949
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2160896796529265443}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.34314197, y: 0.7163036, z: 0.34314197}
+  m_Center: {x: 0, y: 0.3581518, z: 0}

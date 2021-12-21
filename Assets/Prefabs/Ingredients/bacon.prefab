@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9107691944262357484}
   - component: {fileID: 6165825284451643073}
   - component: {fileID: -1363597892130396951}
+  - component: {fileID: 1634135546371074849}
   m_Layer: 2
   m_Name: bacon
   m_TagString: Ingredient
@@ -113,3 +114,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &1634135546371074849
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7306520717990719545}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.12999997, y: 0.029999997, z: 0.51999986}
+  m_Center: {x: 0, y: 0.014999999, z: 0}

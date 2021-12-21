@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2269026444907680801}
   - component: {fileID: -6901051516627106864}
   - component: {fileID: 1997277087291790508}
+  - component: {fileID: 1145588406225287035}
   m_Layer: 2
   m_Name: tomatoSlice
   m_TagString: Ingredient
@@ -113,3 +114,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &1145588406225287035
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323643410489488884}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.17999996, y: 0.029999997, z: 0.17999996}
+  m_Center: {x: 0, y: 0.014999999, z: 0}

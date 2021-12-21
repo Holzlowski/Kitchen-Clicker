@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1983504809684271299}
   - component: {fileID: 2385448004972376545}
   - component: {fileID: -997603040619246148}
+  - component: {fileID: 3341999140530888464}
   m_Layer: 2
   m_Name: eggCooked
   m_TagString: Ingredient
@@ -113,3 +114,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &3341999140530888464
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37769795049693462}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.41407415, y: 0.028199999, z: 0.38170198}
+  m_Center: {x: 0, y: 0.014099999, z: 0}
