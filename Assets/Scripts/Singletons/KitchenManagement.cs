@@ -72,16 +72,14 @@ namespace Singletons
 
         public static void GenerateRandomPizza()
         {
-            // TODO: Generate a random pizza from the list of available recipes
             int randomIndex = Random.Range(0, Instance._availableRecipes.Count);
             Instance.currentPizza = Instantiate(Instance.pizzaPrefab);
             Instance.currentPizza.AddRecipe(Instance._availableRecipes[randomIndex]);
+            // TODO: Remove here and do it in pizza dependent on the ingredientlist of the recipe
             Instance.currentPizza.AddIngredienPrefab(Instance.ingredientPrefab);
 
             // TODO: Add function to set GameObject name (maybe to recipe name + "Pizza" addtion)
             // Instance.currentPizza.name = Instance._availableRecipes[randomIndex].GetName;
-        
-            // TODO: Add MainCamera?
         }
 
         public static void DestoryFinishedPizza()
