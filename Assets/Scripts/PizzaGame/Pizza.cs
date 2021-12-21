@@ -14,32 +14,19 @@ namespace PizzaGame
         [SerializeField] private List<Vector3> slotCoords = new List<Vector3>();
         [SerializeField] private List<Slot> slots = new List<Slot>();
         [SerializeField] private Recipe recipe;
-
-        [SerializeField] private GameObject ingredientPrefab;
-
-        [SerializeField] private float distanceToCamera = 0.85f;
-        [SerializeField] private float degreesPerSecond = 20f;
         [SerializeField] private float fallingDistance = 0.5f;
-
-        [SerializeField] private Camera mainCamera;
-        private Transform _camTransform;
-
+        [SerializeField] private float degreesPerSecond = 20f;
+        private GameObject ingredientPrefab;
         private int _slotHits;
 
         private void Start()
         {
-            _camTransform = mainCamera.transform;
-            _camTransform.eulerAngles = new Vector3(90, 0, 0);
-            _camTransform.position = new Vector3(0, distanceToCamera, 0);
-
             ObjectToCenter();
             SlotSpawns();
         }
 
         private void Update()
         {
-            _camTransform.position = new Vector3(0, distanceToCamera, 0);
-
             RotatePizza();
 
             IngredientSpawnWithClick();
@@ -48,9 +35,7 @@ namespace PizzaGame
                 return;
 
             // Pizza finished
-            Debug.Log("finished");
-            Wallet.AddMoney(recipe.Bonus);
-            // TODO: Fix looping for infinite bonus
+            FinishPizza();
         }
 
         private void OnCollisionEnter(Collision other)
@@ -61,6 +46,9 @@ namespace PizzaGame
         }
 
         public void AddHit() => _slotHits++;
+
+        public void AddRecipe(Recipe currentRecipe) => recipe = currentRecipe;
+        public void AddIngredienPrefab(GameObject currentIngredient) => ingredientPrefab = currentIngredient;
 
         private void ObjectToCenter() => transform.position = Vector3.zero;
 
@@ -97,6 +85,7 @@ namespace PizzaGame
                 var slotInstance = Instantiate(slotPrefab, spawnPos, Quaternion.identity, transform);
                 var randomIngredient = recipe.GetRandomIngredient();
                 slotInstance.Initialize(randomIngredient);
+                slotInstance.pizza = this;
                 slotInstance.gameObject.SetActive(true);
                 slots.Add(slotInstance);
             }
@@ -108,7 +97,8 @@ namespace PizzaGame
         {
             if (!Input.GetMouseButtonDown(0)) return;
 
-            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            IngredientType randomIngredient = recipe.GetRandomIngredient();
+            Ray ray = KitchenManagement.GetMainCamera().ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(ray.origin, ray.direction, Color.black, 100);
 
             if (!Physics.Raycast(ray, out RaycastHit hit) || !hit.transform.CompareTag("Pizza"))
@@ -116,9 +106,17 @@ namespace PizzaGame
 
             Vector3 fallingPosition = new Vector3(hit.point.x, hit.point.y + fallingDistance, hit.point.z);
             // TODO: scale this list of different ingredients
-            Instantiate(ingredientPrefab, fallingPosition, Quaternion.identity);
+            var ingredientInstance = Instantiate(ingredientPrefab, fallingPosition, Quaternion.identity);
         }
 
         private void OnDrawGizmosSelected() => Gizmos.DrawWireSphere(transform.position, spawnRadius);
+
+        private void FinishPizza() {
+            Debug.Log("finished");
+            Wallet.AddMoney(recipe.Bonus);
+            KitchenManagement.DestoryFinishedPizza();
+            KitchenManagement.GenerateRandomPizza();
+            // TODO: Fix looping for infinite bonus
+        }
     }
 }

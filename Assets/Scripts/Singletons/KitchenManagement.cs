@@ -2,12 +2,20 @@ using System;
 using System.Collections.Generic;
 using PizzaGame;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Singletons
 {
     public class KitchenManagement : MonoBehaviour
     {
         [SerializeField] private Recipe startRecipe;
+        [SerializeField] private Pizza pizzaPrefab;
+        [SerializeField] private Camera _mainCamera;
+        private Transform _camTransform;
+        [SerializeField] private float distanceToCamera = 0.85f;
+        // TODO: Delete this and do it in Pizza.cs
+        [SerializeField] private GameObject ingredientPrefab;
+        public Pizza currentPizza;
 
         private static KitchenManagement Instance
         {
@@ -25,6 +33,15 @@ namespace Singletons
         private List<Recipe> _availableRecipes;
         // TODO: Add list of other bought items (e.g. cooks, stoves -> passive generators)
 
+        private void Start()
+        {
+            Instance._camTransform = Instance._mainCamera.transform;
+            Instance._camTransform.eulerAngles = new Vector3(90, 0, 0);
+            Instance._camTransform.position = new Vector3(0, distanceToCamera, 0);
+            
+            GenerateRandomPizza();
+        }
+
         private void Awake()
         {
             if (instance != null)
@@ -37,23 +54,39 @@ namespace Singletons
 
             _availableRecipes = new List<Recipe>
             {
-                startRecipe
+                startRecipe,
             };
         }
 
         private void Update()
         {
+            _camTransform.position = new Vector3(0, distanceToCamera, 0);
+
             // TODO: Add loop for passive currency generation based on bought items
         }
 
         public static void AddRecipe(Recipe recipe) => Instance._availableRecipes.Add(recipe);
+        public static Camera GetMainCamera() => Instance._mainCamera;
 
         public static List<Recipe> GetAvailableRecipes() => Instance._availableRecipes;
 
-        public void GenerateRandomPizza()
+        public static void GenerateRandomPizza()
         {
             // TODO: Generate a random pizza from the list of available recipes
-            throw new NotImplementedException();
+            int randomIndex = Random.Range(0, Instance._availableRecipes.Count);
+            Instance.currentPizza = Instantiate(Instance.pizzaPrefab);
+            Instance.currentPizza.AddRecipe(Instance._availableRecipes[randomIndex]);
+            Instance.currentPizza.AddIngredienPrefab(Instance.ingredientPrefab);
+
+            // TODO: Add function to set GameObject name (maybe to recipe name + "Pizza" addtion)
+            // Instance.currentPizza.name = Instance._availableRecipes[randomIndex].GetName;
+        
+            // TODO: Add MainCamera?
+        }
+
+        public static void DestoryFinishedPizza()
+        {
+            Destroy(GameObject.FindWithTag("Pizza"));
         }
     }
 }
