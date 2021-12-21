@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: -450828298845821367}
   - component: {fileID: 603770554836797432}
   - component: {fileID: 8897263299482412621}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: chocolate
-  m_TagString: Untagged
+  m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

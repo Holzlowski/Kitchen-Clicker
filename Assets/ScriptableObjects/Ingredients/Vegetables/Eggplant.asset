@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Eggplant
   m_EditorClassIdentifier: 
   value: 0
+  prefab: {fileID: 7147258457431813920, guid: c0d465fc1348aa946ae537115f8b4109, type: 3}

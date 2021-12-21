@@ -98,7 +98,7 @@ namespace PizzaGame
             if (!Input.GetMouseButtonDown(0)) return;
 
             IngredientType randomIngredient = recipe.GetRandomIngredient();
-            GameObject randomZutat = recipe.GetRandomIngredient().prefab;
+            GameObject randomIngredientPrefab = recipe.GetRandomIngredient().prefab;
             //ingredientPrefab
             Ray ray = KitchenManagement.GetMainCamera().ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(ray.origin, ray.direction, Color.black, 100);
@@ -108,7 +108,7 @@ namespace PizzaGame
 
             Vector3 fallingPosition = new Vector3(hit.point.x, hit.point.y + fallingDistance, hit.point.z);
             // TODO: scale this list of different ingredients
-            var ingredientInstance = Instantiate(randomZutat, fallingPosition, Quaternion.identity);
+            var ingredientInstance = Instantiate(randomIngredientPrefab, fallingPosition, Quaternion.identity);
         }
 
         private void OnDrawGizmosSelected() => Gizmos.DrawWireSphere(transform.position, spawnRadius);

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Salami
   m_EditorClassIdentifier: 
   value: 5
+  prefab: {fileID: 7492759864892193849, guid: cf7b1355726246040850bdd44b07d5cc, type: 3}

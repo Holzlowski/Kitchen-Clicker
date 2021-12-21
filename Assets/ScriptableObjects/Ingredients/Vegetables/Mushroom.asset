@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Mushroom
   m_EditorClassIdentifier: 
   value: 0
+  prefab: {fileID: 3911663241643618570, guid: fd71cc535a77734439a1b8e1e649d0c5, type: 3}

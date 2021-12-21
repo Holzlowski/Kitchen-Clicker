@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: -5931625615743750703}
   - component: {fileID: 2802420379226711415}
   - component: {fileID: 5283392689462383909}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: cherries
-  m_TagString: Untagged
+  m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

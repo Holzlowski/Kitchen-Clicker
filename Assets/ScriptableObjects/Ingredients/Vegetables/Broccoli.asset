@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Broccoli
   m_EditorClassIdentifier: 
   value: 5
+  prefab: {fileID: 448926373711912809, guid: 8d7a498269ac16c42a5d34562e6b56f7, type: 3}

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Carrot
   m_EditorClassIdentifier: 
   value: 0
+  prefab: {fileID: 2160896796529265443, guid: 90c640d61f7505d4b89f44f5aff80eb4, type: 3}

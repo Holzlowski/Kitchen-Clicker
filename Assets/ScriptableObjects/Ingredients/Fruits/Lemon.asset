@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Lemon
   m_EditorClassIdentifier: 
   value: 0
+  prefab: {fileID: 99222617909567702, guid: 82fab1febfe550042b8d45a176a2c189, type: 3}

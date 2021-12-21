@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Pan
   m_EditorClassIdentifier: 
   value: 0
+  prefab: {fileID: 4181775645360122463, guid: 49f2a0b9e7bb54d49b04cc9d444fbf46, type: 3}

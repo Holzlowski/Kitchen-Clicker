@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: PotStewLid
   m_EditorClassIdentifier: 
   value: 0
+  prefab: {fileID: 5464615076436792996, guid: e591bcbe0999dc342a21464811ee9129, type: 3}

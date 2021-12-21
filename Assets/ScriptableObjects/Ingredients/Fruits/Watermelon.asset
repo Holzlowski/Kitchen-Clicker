@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Watermelon
   m_EditorClassIdentifier: 
   value: 0
+  prefab: {fileID: 5267230173959890661, guid: a86d42f09a050d749be3ed14f7daab91, type: 3}

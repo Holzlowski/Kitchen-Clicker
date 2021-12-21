@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Pizza
   m_EditorClassIdentifier: 
   value: 0
+  prefab: {fileID: 933043587773984615, guid: 666cc6e16f924d74c9aecfe241de5cad, type: 3}

@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 4011821239471122948}
   - component: {fileID: -1466189591110776167}
   - component: {fileID: -2896326315569746683}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: donutSprinkles
-  m_TagString: Untagged
+  m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

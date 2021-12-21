@@ -245,10 +245,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa73225f7fd4134b2ef2e7b230aa262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startRecipe: {fileID: 11400000, guid: 66022f8bf5b1d42c394518dcf39b7744, type: 2}
+  startRecipe: {fileID: 11400000, guid: 8683e69f8de6fe44eafce38ddab7c65f, type: 2}
   pizzaPrefab: {fileID: 8071127611716899527, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
   _mainCamera: {fileID: 963194227}
   distanceToCamera: 8
+  ingredientPrefab: {fileID: 7492759864892193849, guid: cf7b1355726246040850bdd44b07d5cc, type: 3}
   currentPizza: {fileID: 0}
 --- !u!4 &841828662
 Transform:

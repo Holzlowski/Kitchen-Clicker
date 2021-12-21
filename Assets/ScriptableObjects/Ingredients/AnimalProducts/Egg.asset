@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Egg
   m_EditorClassIdentifier: 
   value: 0
+  prefab: {fileID: 37769795049693462, guid: d79cf947485cc6546b4ad1a2e06264dd, type: 3}

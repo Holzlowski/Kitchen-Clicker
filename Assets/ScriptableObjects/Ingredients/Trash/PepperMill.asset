@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: PepperMill
   m_EditorClassIdentifier: 
   value: 0
+  prefab: {fileID: 8543129110333245949, guid: 546e78acf8cbd74409521ff0feee1e2b, type: 3}
