@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: DonutSprinkles
   m_EditorClassIdentifier: 
   value: 0
+  prefab: {fileID: 7780094616663283486, guid: 82f6942502302c845a4aebe3cd646728, type: 3}

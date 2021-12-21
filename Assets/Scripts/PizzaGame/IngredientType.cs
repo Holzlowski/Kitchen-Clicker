@@ -6,6 +6,7 @@ namespace PizzaGame
     public class IngredientType : ScriptableObject
     {
         [SerializeField] private int value;
+        [SerializeField] public GameObject prefab;
 
         public int Value => value;
     }

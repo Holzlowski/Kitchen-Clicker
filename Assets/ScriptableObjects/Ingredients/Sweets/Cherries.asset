@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Cherries
   m_EditorClassIdentifier: 
   value: 0
+  prefab: {fileID: 475719141371669604, guid: 7087f974a62fb4c41bddb1443a06b617, type: 3}
