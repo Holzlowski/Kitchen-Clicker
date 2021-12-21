@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa73225f7fd4134b2ef2e7b230aa262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startRecipe: {fileID: 11400000, guid: 9eb483cafa0d15144b9e0b0f642f05b4, type: 2}
+  startRecipe: {fileID: 11400000, guid: 8bde5d955a74d314182ac6fe4fa39503, type: 2}
   pizzaPrefab: {fileID: 8071127611716899527, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
   _mainCamera: {fileID: 963194227}
   distanceToCamera: 8

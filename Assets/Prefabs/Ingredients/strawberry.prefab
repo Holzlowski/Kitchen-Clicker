@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8469263231406229743}
   - component: {fileID: -2260825565745367454}
   - component: {fileID: 717892966150416618}
-  - component: {fileID: 8978569429371106440}
   m_Layer: 2
   m_Name: strawberry
   m_TagString: Ingredient
@@ -100,19 +99,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: 60c186c458d4b754594a1ca30a6eea92, type: 2}
 --- !u!65 &717892966150416618
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7964653845291821370}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.11967999, y: 0.17699997, z: 0.11967999}
-  m_Center: {x: 0, y: 0.088499986, z: 0}
---- !u!65 &8978569429371106440
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
