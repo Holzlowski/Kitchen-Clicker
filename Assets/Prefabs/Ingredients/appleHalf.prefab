@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4516153857940545584}
   - component: {fileID: 649434878730923925}
   - component: {fileID: 3379871106634718047}
-  - component: {fileID: 6856877668201074071}
   - component: {fileID: -1608920133161287366}
+  - component: {fileID: 6856877668201074071}
   - component: {fileID: 5333447877616527373}
   m_Layer: 2
   m_Name: appleHalf
@@ -88,6 +88,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-1608920133161287366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3884155310775876234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dee5e7b6255ac174b9ba4b7774334bbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: {fileID: 11400000, guid: 525725e254beffe44b4fa40aeccf0ce5, type: 2}
 --- !u!54 &6856877668201074071
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -104,19 +117,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-1608920133161287366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3884155310775876234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dee5e7b6255ac174b9ba4b7774334bbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: {fileID: 11400000, guid: 525725e254beffe44b4fa40aeccf0ce5, type: 2}
 --- !u!65 &5333447877616527373
 BoxCollider:
   m_ObjectHideFlags: 0

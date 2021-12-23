@@ -14,7 +14,7 @@ namespace PizzaGame
         [SerializeField] private List<Vector3> slotCoords = new List<Vector3>();
         [SerializeField] private List<Slot> slots = new List<Slot>();
         [SerializeField] private Recipe recipe;
-        [SerializeField] private float fallingDistance = 0.5f;
+        [SerializeField] private float fallingDistance = 10f;
         [SerializeField] private float degreesPerSecond = 20f;
         private GameObject ingredientPrefab;
         private int _slotHits;
@@ -108,7 +108,7 @@ namespace PizzaGame
 
             Vector3 fallingPosition = new Vector3(hit.point.x, hit.point.y + fallingDistance, hit.point.z);
             // TODO: scale this list of different ingredients
-            var ingredientInstance = Instantiate(randomIngredientPrefab, fallingPosition, Quaternion.identity);
+            var ingredientInstance = Instantiate(randomIngredientPrefab, fallingPosition, Quaternion.Euler(Random.Range(0,360), Random.Range(0,360), Random.Range(0,360)));
         }
 
         private void OnDrawGizmosSelected() => Gizmos.DrawWireSphere(transform.position, spawnRadius);
