@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 556483311133341149}
   - component: {fileID: 2801377259696717926}
-  m_Layer: 0
+  - component: {fileID: 4348094867526436049}
+  - component: {fileID: -8985610188202208558}
+  m_Layer: 2
   m_Name: pizza
-  m_TagString: Untagged
+  m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 933043587773984615}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.9596488, y: 3.9596488, z: 3.9596488}
   m_Children:
   - {fileID: 206434287052120647}
   - {fileID: 2953804463789050840}
@@ -52,6 +54,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: b05d942d4996abd4eb0f4ab4e575d7f8, type: 2}
+  splashEffect: {fileID: 753863448984704853, guid: 40793ddc1e1eaf444a39c52557d37090, type: 3}
+--- !u!54 &4348094867526436049
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933043587773984615}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &-8985610188202208558
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933043587773984615}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2095739800781724993
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,7 +95,7 @@ GameObject:
   - component: {fileID: 3471253422870086991}
   - component: {fileID: 7770819831437626682}
   - component: {fileID: 894970295015842836}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: slice4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +180,7 @@ GameObject:
   - component: {fileID: 2953804463789050840}
   - component: {fileID: 2511353404810366047}
   - component: {fileID: 4563595765697060828}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: slice1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +265,7 @@ GameObject:
   - component: {fileID: 4940221997666519692}
   - component: {fileID: 1312818354986071597}
   - component: {fileID: 4221395411267969027}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: slice2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +350,7 @@ GameObject:
   - component: {fileID: 6688593547087840311}
   - component: {fileID: 6457853728470895928}
   - component: {fileID: 9029598419693517315}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: slice6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +435,7 @@ GameObject:
   - component: {fileID: 863485617122154531}
   - component: {fileID: 1759823573625759038}
   - component: {fileID: 5036922671720072213}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: slice3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +520,7 @@ GameObject:
   - component: {fileID: 6620006061906674187}
   - component: {fileID: 5274303710622825875}
   - component: {fileID: 2692507640031038332}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: slice7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,7 +605,7 @@ GameObject:
   - component: {fileID: 7507662356742339121}
   - component: {fileID: 6892673588160747502}
   - component: {fileID: 5575909823986903466}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: slice5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -658,7 +690,7 @@ GameObject:
   - component: {fileID: 206434287052120647}
   - component: {fileID: 7492877404060915178}
   - component: {fileID: 3916381271958962836}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: slice0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

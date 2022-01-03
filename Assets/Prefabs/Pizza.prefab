@@ -109,7 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pizza: {fileID: 0}
-  wallet: {fileID: 0}
 --- !u!1 &6864111363844696934
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,12 +220,9 @@ MonoBehaviour:
   slotPrefab: {fileID: 5414771106982103208}
   slotCoords: []
   slots: []
-  recipe: {fileID: 11400000, guid: 66022f8bf5b1d42c394518dcf39b7744, type: 2}
-  wallet: {fileID: 0}
-  ingredientPrefab: {fileID: 0}
-  distanceToCamera: 8.5
-  degreesPerSecond: 20
+  recipe: {fileID: 11400000, guid: a38fca7829008ff40951513ee9ea0d14, type: 2}
   fallingDistance: 0.5
+  degreesPerSecond: 20
 --- !u!1001 &9153594220621994
 PrefabInstance:
   m_ObjectHideFlags: 0

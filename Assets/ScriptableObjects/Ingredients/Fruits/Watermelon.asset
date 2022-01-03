@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Watermelon
   m_EditorClassIdentifier: 
   value: 0
+  prefab: {fileID: -6580917973726614245, guid: a86d42f09a050d749be3ed14f7daab91, type: 3}
+  slotPrefab: {fileID: -5832323054465756572, guid: 7eaf55ab1a4b44a0caacf2977575ccb9, type: 3}

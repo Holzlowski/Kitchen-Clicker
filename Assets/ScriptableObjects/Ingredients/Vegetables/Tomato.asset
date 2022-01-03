@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Tomato
   m_EditorClassIdentifier: 
   value: 0
+  prefab: {fileID: -6901051516627106864, guid: d77242c09df1722488268f9c3388c7ec, type: 3}
+  slotPrefab: {fileID: -1498390894676404701, guid: b1cc654add3ff4dadadc736c846490e2, type: 3}

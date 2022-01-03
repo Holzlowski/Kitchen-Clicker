@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Banana
   m_EditorClassIdentifier: 
   value: 0
+  prefab: {fileID: 8683465364005800934, guid: 670dd2b5258c7c849ad55d8413967fbd, type: 3}
+  slotPrefab: {fileID: 6631428773780840257, guid: d90cade6f372341e09c040993548c6c7, type: 3}
