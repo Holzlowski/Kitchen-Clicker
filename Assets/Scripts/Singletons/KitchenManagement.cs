@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using PizzaGame;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Singletons
 {
@@ -10,10 +8,11 @@ namespace Singletons
     {
         [SerializeField] private Recipe startRecipe;
         [SerializeField] private Pizza pizzaPrefab;
-        [SerializeField] private Camera _mainCamera;
-        private Transform _camTransform;
+        [SerializeField] private Camera mainCamera;
         [SerializeField] private float distanceToCamera = 0.85f;
-        public Pizza currentPizza;
+
+        private Transform _camTransform;
+        private Pizza _currentPizza;
 
         private static KitchenManagement Instance
         {
@@ -33,10 +32,10 @@ namespace Singletons
 
         private void Start()
         {
-            Instance._camTransform = Instance._mainCamera.transform;
+            Instance._camTransform = Instance.mainCamera.transform;
             Instance._camTransform.eulerAngles = new Vector3(90, 0, 0);
             Instance._camTransform.position = new Vector3(0, distanceToCamera, 0);
-            
+
             GenerateRandomPizza();
         }
 
@@ -64,15 +63,15 @@ namespace Singletons
         }
 
         public static void AddRecipe(Recipe recipe) => Instance._availableRecipes.Add(recipe);
-        public static Camera GetMainCamera() => Instance._mainCamera;
+        public static Camera GetMainCamera() => Instance.mainCamera;
 
         public static List<Recipe> GetAvailableRecipes() => Instance._availableRecipes;
 
         public static void GenerateRandomPizza()
         {
             int randomIndex = Random.Range(0, Instance._availableRecipes.Count);
-            Instance.currentPizza = Instantiate(Instance.pizzaPrefab);
-            Instance.currentPizza.AddRecipe(Instance._availableRecipes[randomIndex]);
+            Instance._currentPizza = Instantiate(Instance.pizzaPrefab);
+            Instance._currentPizza.AddRecipe(Instance._availableRecipes[randomIndex]);
         }
 
         public static void DestroyFinishedPizza()
@@ -83,10 +82,10 @@ namespace Singletons
         public static void DestroyAllIngredients()
         {
             GameObject[] ingredients = GameObject.FindGameObjectsWithTag("Ingredient");
-            foreach(GameObject ingredient in ingredients){
+            foreach (GameObject ingredient in ingredients)
+            {
                 Destroy(ingredient);
             }
-                
         }
     }
 }
