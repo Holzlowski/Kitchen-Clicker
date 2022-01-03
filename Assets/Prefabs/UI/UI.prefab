@@ -220,7 +220,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1260,6 +1260,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1516215824204194151, guid: 9b2110e9366bf4bb795245c9f4378dee, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1516215824204194151, guid: 9b2110e9366bf4bb795245c9f4378dee, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1773269148480338045}
+    - target: {fileID: 1516215824204194151, guid: 9b2110e9366bf4bb795245c9f4378dee, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1516215824204194151, guid: 9b2110e9366bf4bb795245c9f4378dee, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 5638926884151401898}
+    - target: {fileID: 1516215824204194151, guid: 9b2110e9366bf4bb795245c9f4378dee, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3577052354022749611, guid: 9b2110e9366bf4bb795245c9f4378dee, type: 3}
       propertyPath: m_text
       value: Upgrades
@@ -1398,6 +1418,14 @@ PrefabInstance:
     - target: {fileID: 688965666099263326, guid: 9b2110e9366bf4bb795245c9f4378dee, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1516215824204194151, guid: 9b2110e9366bf4bb795245c9f4378dee, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1773269148480338045}
+    - target: {fileID: 1516215824204194151, guid: 9b2110e9366bf4bb795245c9f4378dee, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseWindow
       objectReference: {fileID: 0}
     - target: {fileID: 2382492622953367127, guid: 9b2110e9366bf4bb795245c9f4378dee, type: 3}
       propertyPath: items.Array.size
