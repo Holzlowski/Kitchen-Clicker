@@ -1,23 +1,28 @@
 using System.Collections.Generic;
 using Singletons;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace PizzaGame
 {
     public class Pizza : MonoBehaviour
     {
-        [SerializeField] private float spawnRadius = 1;
+        [Header("Slot Spawn Options")] [SerializeField]
+        private float spawnRadius = 1;
+
         [SerializeField] private int slotCount = 5;
         [SerializeField] private float minDist;
         [SerializeField] private int maxAttempts;
-        [SerializeField] private Slot slotPrefab;
-        [SerializeField] private List<Vector3> slotCoords = new List<Vector3>();
-        [SerializeField] private List<Slot> slots = new List<Slot>();
-        [SerializeField] private Recipe recipe;
-        [SerializeField] private float fallingDistance = 20f;
-        [SerializeField] private float degreesPerSecond = 20f;
-        private GameObject ingredientPrefab;
+
+        [Header("Ingredient Spawn Options")] [SerializeField]
+        private float fallingDistance = 20f;
+
+        [Header("Pizza Rotation")] [SerializeField]
+        private float degreesPerSecond = 20f;
+
+        private readonly List<Vector3> _slotCoords = new List<Vector3>();
         private int _slotHits;
+        private Recipe _recipe;
 
         private void Start()
         {
@@ -39,7 +44,7 @@ namespace PizzaGame
 
         public void AddHit() => _slotHits++;
 
-        public void AddRecipe(Recipe currentRecipe) => recipe = currentRecipe;
+        public void AddRecipe(Recipe currentRecipe) => _recipe = currentRecipe;
 
         private void ObjectToCenter() => transform.position = Vector3.zero;
 
@@ -54,7 +59,7 @@ namespace PizzaGame
                     var circlePos = Random.insideUnitCircle * spawnRadius;
                     spawnPos = new Vector3(circlePos.x, 0.175f, circlePos.y);
                     var ok = true;
-                    foreach (var slot in slotCoords)
+                    foreach (var slot in _slotCoords)
                     {
                         var dist = (slot - spawnPos).magnitude;
                         if (dist < minDist)
@@ -72,13 +77,12 @@ namespace PizzaGame
                     attempts++;
                 }
 
-                slotCoords.Add(spawnPos);
-                var randomIngredient = recipe.GetRandomIngredient();
+                _slotCoords.Add(spawnPos);
+                var randomIngredient = _recipe.GetRandomIngredient();
                 var slotInstance = Instantiate(randomIngredient.SlotPrefab, spawnPos, Quaternion.identity, transform);
                 slotInstance.Initialize(randomIngredient);
                 slotInstance.pizza = this;
                 slotInstance.gameObject.SetActive(true);
-                slots.Add(slotInstance);
             }
         }
 
@@ -86,9 +90,10 @@ namespace PizzaGame
 
         private void IngredientSpawnWithClick()
         {
-            if (!Input.GetMouseButtonDown(0)) return;
+            if (!Input.GetMouseButtonDown(0) || EventSystem.current.IsPointerOverGameObject())
+                return;
 
-            Ingredient randomIngredientPrefab = recipe.GetRandomIngredient().Prefab;
+            Ingredient randomIngredientPrefab = _recipe.GetRandomIngredient().Prefab;
             Ray ray = KitchenManagement.GetMainCamera().ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(ray.origin, ray.direction, Color.black, 100);
 
@@ -96,7 +101,7 @@ namespace PizzaGame
                 return;
 
             Vector3 fallingPosition = new Vector3(hit.point.x, hit.point.y + fallingDistance, hit.point.z);
-            var ingredientInstance = Instantiate(randomIngredientPrefab, fallingPosition,
+            Instantiate(randomIngredientPrefab, fallingPosition,
                 Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
         }
 
@@ -104,7 +109,7 @@ namespace PizzaGame
 
         private void FinishPizza()
         {
-            Wallet.AddMoney(recipe.Bonus);
+            Wallet.AddMoney(_recipe.Bonus);
             KitchenManagement.DestroyAllIngredients();
             KitchenManagement.DestroyFinishedPizza();
             KitchenManagement.GenerateRandomPizza();
