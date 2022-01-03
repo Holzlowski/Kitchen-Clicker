@@ -1,4 +1,5 @@
 using Shop;
+using Singletons;
 using UnityEngine;
 
 namespace PizzaGame
@@ -14,7 +15,6 @@ namespace PizzaGame
 
         public IngredientType GetRandomIngredient() => Ingredients[Random.Range(0, Ingredients.Length)];
 
-        // TODO: Implement unlock logic
-        public override void Buy() => Debug.Log("Bought recipe " + name);
+        public override void Buy() => KitchenManagement.AddRecipe(this);
     }
 }

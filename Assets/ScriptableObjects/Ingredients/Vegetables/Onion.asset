@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Onion
   m_EditorClassIdentifier: 
   value: 0
+  prefab: {fileID: 1713293708598876219, guid: df899b611e03a954fbb06813b36bf423, type: 3}
+  slotPrefab: {fileID: 7193103853147613093, guid: 1472ece064d6d44ae989c33b91186647, type: 3}

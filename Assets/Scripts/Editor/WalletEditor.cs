@@ -1,3 +1,4 @@
+using Singletons;
 using UnityEditor;
 using UnityEngine;
 

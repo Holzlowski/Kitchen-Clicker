@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Lemon
   m_EditorClassIdentifier: 
   value: 0
+  prefab: {fileID: -8520925537937780161, guid: 71c34d54811b0344093b1ce5e7dc91cd, type: 3}
+  slotPrefab: {fileID: -9161951220240674224, guid: 7217058baedcd4390a6490a2e510d79e, type: 3}

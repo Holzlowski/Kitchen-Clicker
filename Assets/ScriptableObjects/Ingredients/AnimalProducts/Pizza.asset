@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Pizza
   m_EditorClassIdentifier: 
   value: 0
+  prefab: {fileID: 2801377259696717926, guid: 666cc6e16f924d74c9aecfe241de5cad, type: 3}
+  slotPrefab: {fileID: -5013563475241310708, guid: 9c869be6c23584aa18872ed5e8dbe672, type: 3}
