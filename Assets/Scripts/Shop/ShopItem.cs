@@ -18,6 +18,7 @@ namespace Shop
             if (!Wallet.RemoveMoney(price))
             {
                 // TODO: Add UI notification
+                UIManager.ShowNotification("Not enough money");
                 Debug.Log("Not enough money");
                 return false;
             }

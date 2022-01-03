@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 9076637996939436555}
   - component: {fileID: 9118718951575673242}
   - component: {fileID: 244827371843589231}
-  - component: {fileID: 3798636336544564685}
   m_Layer: 5
   m_Name: Store - Menu
   m_TagString: Untagged
@@ -79,18 +78,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3798636336544564685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 688965666099263326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f67eecdd9c7f4117b9a5dd4822d11688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &972843625847141052
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,7 +594,7 @@ PrefabInstance:
     - target: {fileID: 3507394622710126768, guid: 9219d23b73f72441db95e663ae0e5616, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 3798636336544564685}
+      objectReference: {fileID: 0}
     - target: {fileID: 3507394622710126768, guid: 9219d23b73f72441db95e663ae0e5616, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2

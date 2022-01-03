@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 9076637996939436555}
   - component: {fileID: 9118718951575673242}
   - component: {fileID: 244827371843589231}
-  - component: {fileID: 229805252214118491}
   - component: {fileID: 2382492622953367127}
   m_Layer: 5
   m_Name: Store - Buy
@@ -80,18 +79,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &229805252214118491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 688965666099263326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f67eecdd9c7f4117b9a5dd4822d11688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2382492622953367127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -829,29 +816,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3507394622710126768, guid: 9219d23b73f72441db95e663ae0e5616, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3507394622710126768, guid: 9219d23b73f72441db95e663ae0e5616, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 229805252214118491}
+      objectReference: {fileID: 688965666099263326}
     - target: {fileID: 3507394622710126768, guid: 9219d23b73f72441db95e663ae0e5616, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3507394622710126768, guid: 9219d23b73f72441db95e663ae0e5616, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseWindow
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3507394622710126768, guid: 9219d23b73f72441db95e663ae0e5616, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UI.MenuEscape, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3507394622710126768, guid: 9219d23b73f72441db95e663ae0e5616, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 688965666099263326}
     - target: {fileID: 6003614413241073531, guid: 9219d23b73f72441db95e663ae0e5616, type: 3}
       propertyPath: m_Name
       value: Close Button
