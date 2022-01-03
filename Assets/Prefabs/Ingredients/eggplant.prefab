@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: 9e635ff021a411a459614c6e62cb14de, type: 2}
+  splashEffect: {fileID: 753863448984704853, guid: 40793ddc1e1eaf444a39c52557d37090, type: 3}
 --- !u!54 &8585953275550035939
 Rigidbody:
   m_ObjectHideFlags: 0

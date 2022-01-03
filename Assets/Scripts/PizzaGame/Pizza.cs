@@ -14,7 +14,7 @@ namespace PizzaGame
         [SerializeField] private List<Vector3> slotCoords = new List<Vector3>();
         [SerializeField] private List<Slot> slots = new List<Slot>();
         [SerializeField] private Recipe recipe;
-        [SerializeField] private float fallingDistance = 200f;
+        [SerializeField] private float fallingDistance = 20f;
         [SerializeField] private float degreesPerSecond = 20f;
         private GameObject ingredientPrefab;
         private int _slotHits;
@@ -116,6 +116,7 @@ namespace PizzaGame
         private void FinishPizza() {
             Debug.Log("finished");
             Wallet.AddMoney(recipe.Bonus);
+            KitchenManagement.DestroyAllIngredients();
             KitchenManagement.DestoryFinishedPizza();
             KitchenManagement.GenerateRandomPizza();
             // TODO: Fix looping for infinite bonus
