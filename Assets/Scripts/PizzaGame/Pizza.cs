@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Singletons;
 using UnityEngine;
 
 namespace PizzaGame
@@ -13,32 +14,19 @@ namespace PizzaGame
         [SerializeField] private List<Vector3> slotCoords = new List<Vector3>();
         [SerializeField] private List<Slot> slots = new List<Slot>();
         [SerializeField] private Recipe recipe;
-
-        [SerializeField] private GameObject ingredientPrefab;
-
-        [SerializeField] private float distanceToCamera = 0.85f;
+        [SerializeField] private float fallingDistance = 20f;
         [SerializeField] private float degreesPerSecond = 20f;
-        [SerializeField] private float fallingDistance = 0.5f;
-
-        [SerializeField] private Camera mainCamera;
-        private Transform _camTransform;
-
+        private GameObject ingredientPrefab;
         private int _slotHits;
 
         private void Start()
         {
-            _camTransform = mainCamera.transform;
-            _camTransform.eulerAngles = new Vector3(90, 0, 0);
-            _camTransform.position = new Vector3(0, distanceToCamera, 0);
-
             ObjectToCenter();
             SlotSpawns();
         }
 
         private void Update()
         {
-            _camTransform.position = new Vector3(0, distanceToCamera, 0);
-
             RotatePizza();
 
             IngredientSpawnWithClick();
@@ -46,20 +34,12 @@ namespace PizzaGame
             if (_slotHits != slotCount)
                 return;
 
-            // Pizza finished
-            Debug.Log("finished");
-            Wallet.AddMoney(recipe.Bonus);
-            // TODO: Fix looping for infinite bonus
-        }
-
-        private void OnCollisionEnter(Collision other)
-        {
-            // If ingredient lands on pizza, stick it to pizza
-            if (other.gameObject.CompareTag("Ingredient"))
-                other.transform.parent = transform;
+            FinishPizza();
         }
 
         public void AddHit() => _slotHits++;
+
+        public void AddRecipe(Recipe currentRecipe) => recipe = currentRecipe;
 
         private void ObjectToCenter() => transform.position = Vector3.zero;
 
@@ -93,9 +73,10 @@ namespace PizzaGame
                 }
 
                 slotCoords.Add(spawnPos);
-                var slotInstance = Instantiate(slotPrefab, spawnPos, Quaternion.identity, transform);
                 var randomIngredient = recipe.GetRandomIngredient();
+                var slotInstance = Instantiate(randomIngredient.SlotPrefab, spawnPos, Quaternion.identity, transform);
                 slotInstance.Initialize(randomIngredient);
+                slotInstance.pizza = this;
                 slotInstance.gameObject.SetActive(true);
                 slots.Add(slotInstance);
             }
@@ -107,17 +88,26 @@ namespace PizzaGame
         {
             if (!Input.GetMouseButtonDown(0)) return;
 
-            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            Ingredient randomIngredientPrefab = recipe.GetRandomIngredient().Prefab;
+            Ray ray = KitchenManagement.GetMainCamera().ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(ray.origin, ray.direction, Color.black, 100);
 
             if (!Physics.Raycast(ray, out RaycastHit hit) || !hit.transform.CompareTag("Pizza"))
                 return;
 
             Vector3 fallingPosition = new Vector3(hit.point.x, hit.point.y + fallingDistance, hit.point.z);
-            // TODO: scale this list of different ingredients
-            Instantiate(ingredientPrefab, fallingPosition, Quaternion.identity);
+            var ingredientInstance = Instantiate(randomIngredientPrefab, fallingPosition,
+                Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
         }
 
         private void OnDrawGizmosSelected() => Gizmos.DrawWireSphere(transform.position, spawnRadius);
+
+        private void FinishPizza()
+        {
+            Wallet.AddMoney(recipe.Bonus);
+            KitchenManagement.DestroyAllIngredients();
+            KitchenManagement.DestroyFinishedPizza();
+            KitchenManagement.GenerateRandomPizza();
+        }
     }
 }
