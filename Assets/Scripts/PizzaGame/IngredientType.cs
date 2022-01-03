@@ -6,11 +6,11 @@ namespace PizzaGame
     public class IngredientType : ScriptableObject
     {
         [SerializeField] private int value;
-        [SerializeField] private GameObject prefab;
+        [SerializeField] private Ingredient prefab;
         [SerializeField] private Slot slotPrefab;
 
         public int Value => value;
-        public GameObject Prefab => prefab;
+        public Ingredient Prefab => prefab;
         public Slot SlotPrefab => slotPrefab;
     }
 }

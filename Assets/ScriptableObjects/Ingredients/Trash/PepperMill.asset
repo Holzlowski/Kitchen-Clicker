@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PepperMill
   m_EditorClassIdentifier: 
   value: 0
-  prefab: {fileID: 8543129110333245949, guid: 546e78acf8cbd74409521ff0feee1e2b, type: 3}
+  prefab: {fileID: 7161217277694378368, guid: 546e78acf8cbd74409521ff0feee1e2b, type: 3}
   slotPrefab: {fileID: -8495074439292461284, guid: df3c6c9c2fe09433abf6acbca18a63b1, type: 3}

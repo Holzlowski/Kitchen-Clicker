@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Salami
   m_EditorClassIdentifier: 
   value: 5
-  prefab: {fileID: 7492759864892193849, guid: cf7b1355726246040850bdd44b07d5cc, type: 3}
+  prefab: {fileID: -1021345367111921491, guid: cf7b1355726246040850bdd44b07d5cc, type: 3}
   slotPrefab: {fileID: -7260566651931509245, guid: 45d72b1dee3814812a7f78cd2ac16957, type: 3}

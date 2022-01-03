@@ -13,8 +13,6 @@ namespace Singletons
         [SerializeField] private Camera _mainCamera;
         private Transform _camTransform;
         [SerializeField] private float distanceToCamera = 0.85f;
-        // TODO: Delete this and do it in Pizza.cs
-        [SerializeField] private GameObject ingredientPrefab;
         public Pizza currentPizza;
 
         private static KitchenManagement Instance
@@ -75,18 +73,15 @@ namespace Singletons
             int randomIndex = Random.Range(0, Instance._availableRecipes.Count);
             Instance.currentPizza = Instantiate(Instance.pizzaPrefab);
             Instance.currentPizza.AddRecipe(Instance._availableRecipes[randomIndex]);
-            // TODO: Remove here and do it in pizza dependent on the ingredientlist of the recipe
-            Instance.currentPizza.AddIngredienPrefab(Instance.ingredientPrefab);
-
-            // TODO: Add function to set GameObject name (maybe to recipe name + "Pizza" addtion)
-            // Instance.currentPizza.name = Instance._availableRecipes[randomIndex].GetName;
         }
 
-        public static void DestoryFinishedPizza()
+        public static void DestroyFinishedPizza()
         {
             Destroy(GameObject.FindWithTag("Pizza"));
         }
-        public static void DestroyAllIngredients(){
+
+        public static void DestroyAllIngredients()
+        {
             GameObject[] ingredients = GameObject.FindGameObjectsWithTag("Ingredient");
             foreach(GameObject ingredient in ingredients){
                 Destroy(ingredient);

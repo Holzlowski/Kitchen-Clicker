@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Pan
   m_EditorClassIdentifier: 
   value: 0
-  prefab: {fileID: 4181775645360122463, guid: 49f2a0b9e7bb54d49b04cc9d444fbf46, type: 3}
+  prefab: {fileID: 8161514474538384476, guid: 49f2a0b9e7bb54d49b04cc9d444fbf46, type: 3}
   slotPrefab: {fileID: -5571996356625771027, guid: 5e9aa1ebd7188402bafb2b97f4284b20, type: 3}

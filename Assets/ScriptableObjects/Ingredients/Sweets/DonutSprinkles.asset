@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DonutSprinkles
   m_EditorClassIdentifier: 
   value: 0
-  prefab: {fileID: 7780094616663283486, guid: 82f6942502302c845a4aebe3cd646728, type: 3}
+  prefab: {fileID: 4011821239471122948, guid: 82f6942502302c845a4aebe3cd646728, type: 3}
   slotPrefab: {fileID: 3832511185598058498, guid: 15234f6d7fe8649de8870817bd54f63a, type: 3}

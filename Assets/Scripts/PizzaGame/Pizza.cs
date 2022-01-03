@@ -34,21 +34,12 @@ namespace PizzaGame
             if (_slotHits != slotCount)
                 return;
 
-            // Pizza finished
             FinishPizza();
         }
-
-        // private void OnCollisionEnter(Collision other)
-        // {
-        //     // If ingredient lands on pizza, stick it to pizza
-        //     if (other.gameObject.CompareTag("Ingredient"))
-        //         other.transform.parent = transform;
-        // }
 
         public void AddHit() => _slotHits++;
 
         public void AddRecipe(Recipe currentRecipe) => recipe = currentRecipe;
-        public void AddIngredienPrefab(GameObject currentIngredient) => ingredientPrefab = currentIngredient;
 
         private void ObjectToCenter() => transform.position = Vector3.zero;
 
@@ -97,9 +88,7 @@ namespace PizzaGame
         {
             if (!Input.GetMouseButtonDown(0)) return;
 
-            IngredientType randomIngredient = recipe.GetRandomIngredient();
-            GameObject randomIngredientPrefab = recipe.GetRandomIngredient().Prefab;
-            //ingredientPrefab
+            Ingredient randomIngredientPrefab = recipe.GetRandomIngredient().Prefab;
             Ray ray = KitchenManagement.GetMainCamera().ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(ray.origin, ray.direction, Color.black, 100);
 
@@ -107,7 +96,6 @@ namespace PizzaGame
                 return;
 
             Vector3 fallingPosition = new Vector3(hit.point.x, hit.point.y + fallingDistance, hit.point.z);
-            // TODO: scale this list of different ingredients
             var ingredientInstance = Instantiate(randomIngredientPrefab, fallingPosition,
                 Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
         }
@@ -116,12 +104,10 @@ namespace PizzaGame
 
         private void FinishPizza()
         {
-            Debug.Log("finished");
             Wallet.AddMoney(recipe.Bonus);
             KitchenManagement.DestroyAllIngredients();
-            KitchenManagement.DestoryFinishedPizza();
+            KitchenManagement.DestroyFinishedPizza();
             KitchenManagement.GenerateRandomPizza();
-            // TODO: Fix looping for infinite bonus
         }
     }
 }

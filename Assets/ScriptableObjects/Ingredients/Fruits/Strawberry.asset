@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Strawberry
   m_EditorClassIdentifier: 
   value: 0
-  prefab: {fileID: 7964653845291821370, guid: fada37df7fb2c054d98795274b8c8647, type: 3}
+  prefab: {fileID: -2260825565745367454, guid: fada37df7fb2c054d98795274b8c8647, type: 3}
   slotPrefab: {fileID: -8985847744175872757, guid: de01fed4c6dfd48b58225dac71ee5c02, type: 3}

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Eggplant
   m_EditorClassIdentifier: 
   value: 0
-  prefab: {fileID: 7147258457431813920, guid: c0d465fc1348aa946ae537115f8b4109, type: 3}
+  prefab: {fileID: -6362517835728676096, guid: c0d465fc1348aa946ae537115f8b4109, type: 3}
   slotPrefab: {fileID: -3734133304471178887, guid: d87107485c7d347fe86e9fc16699727b, type: 3}
