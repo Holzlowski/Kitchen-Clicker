@@ -86,5 +86,12 @@ namespace Singletons
         {
             Destroy(GameObject.FindWithTag("Pizza"));
         }
+        public static void DestroyAllIngredients(){
+            GameObject[] ingredients = GameObject.FindGameObjectsWithTag("Ingredient");
+            foreach(GameObject ingredient in ingredients){
+                Destroy(ingredient);
+            }
+                
+        }
     }
 }

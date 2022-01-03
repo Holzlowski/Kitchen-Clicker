@@ -14,7 +14,7 @@ namespace PizzaGame
         [SerializeField] private List<Vector3> slotCoords = new List<Vector3>();
         [SerializeField] private List<Slot> slots = new List<Slot>();
         [SerializeField] private Recipe recipe;
-        [SerializeField] private float fallingDistance = 10f;
+        [SerializeField] private float fallingDistance = 200f;
         [SerializeField] private float degreesPerSecond = 20f;
         private GameObject ingredientPrefab;
         private int _slotHits;
@@ -38,12 +38,12 @@ namespace PizzaGame
             FinishPizza();
         }
 
-        private void OnCollisionEnter(Collision other)
-        {
-            // If ingredient lands on pizza, stick it to pizza
-            if (other.gameObject.CompareTag("Ingredient"))
-                other.transform.parent = transform;
-        }
+        // private void OnCollisionEnter(Collision other)
+        // {
+        //     // If ingredient lands on pizza, stick it to pizza
+        //     if (other.gameObject.CompareTag("Ingredient"))
+        //         other.transform.parent = transform;
+        // }
 
         public void AddHit() => _slotHits++;
 
