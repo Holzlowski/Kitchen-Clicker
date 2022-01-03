@@ -82,8 +82,8 @@ namespace PizzaGame
                 }
 
                 slotCoords.Add(spawnPos);
-                var slotInstance = Instantiate(slotPrefab, spawnPos, Quaternion.identity, transform);
                 var randomIngredient = recipe.GetRandomIngredient();
+                var slotInstance = Instantiate(randomIngredient.SlotPrefab, spawnPos, Quaternion.identity, transform);
                 slotInstance.Initialize(randomIngredient);
                 slotInstance.pizza = this;
                 slotInstance.gameObject.SetActive(true);
@@ -98,7 +98,7 @@ namespace PizzaGame
             if (!Input.GetMouseButtonDown(0)) return;
 
             IngredientType randomIngredient = recipe.GetRandomIngredient();
-            GameObject randomIngredientPrefab = recipe.GetRandomIngredient().prefab;
+            GameObject randomIngredientPrefab = recipe.GetRandomIngredient().Prefab;
             //ingredientPrefab
             Ray ray = KitchenManagement.GetMainCamera().ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(ray.origin, ray.direction, Color.black, 100);
@@ -108,12 +108,14 @@ namespace PizzaGame
 
             Vector3 fallingPosition = new Vector3(hit.point.x, hit.point.y + fallingDistance, hit.point.z);
             // TODO: scale this list of different ingredients
-            var ingredientInstance = Instantiate(randomIngredientPrefab, fallingPosition, Quaternion.Euler(Random.Range(0,360), Random.Range(0,360), Random.Range(0,360)));
+            var ingredientInstance = Instantiate(randomIngredientPrefab, fallingPosition,
+                Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
         }
 
         private void OnDrawGizmosSelected() => Gizmos.DrawWireSphere(transform.position, spawnRadius);
 
-        private void FinishPizza() {
+        private void FinishPizza()
+        {
             Debug.Log("finished");
             Wallet.AddMoney(recipe.Bonus);
             KitchenManagement.DestroyAllIngredients();

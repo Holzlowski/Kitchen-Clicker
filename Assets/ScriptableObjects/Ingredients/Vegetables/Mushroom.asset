@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 0
   prefab: {fileID: 3911663241643618570, guid: fd71cc535a77734439a1b8e1e649d0c5, type: 3}
+  slotPrefab: {fileID: -9068815332867451169, guid: 00a8f9d5af4a040c8acaace5ba1ccc2e, type: 3}
