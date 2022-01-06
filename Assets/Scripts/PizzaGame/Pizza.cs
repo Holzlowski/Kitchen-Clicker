@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Singletons;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace PizzaGame
 {
@@ -13,7 +14,7 @@ namespace PizzaGame
         [SerializeField] private int slotCount = 5;
         [SerializeField] private float minDist;
         [SerializeField] private int maxAttempts;
-
+       
         [Header("Ingredient Spawn Options")] [SerializeField]
         private float fallingDistance = 20f;
 
@@ -23,11 +24,16 @@ namespace PizzaGame
         private readonly List<Vector3> _slotCoords = new List<Vector3>();
         private int _slotHits;
         private Recipe _recipe;
+        [SerializeField] private IngredientType currentIngredient, nextIngredient;
+        public IngredientType getCurrentIngredient => currentIngredient;
 
         private void Start()
         {
             ObjectToCenter();
             SlotSpawns();
+
+            currentIngredient = _recipe.GetRandomIngredient();
+            nextIngredient = _recipe.GetRandomIngredient();
         }
 
         private void Update()
@@ -35,7 +41,7 @@ namespace PizzaGame
             RotatePizza();
 
             IngredientSpawnWithClick();
-
+            
             if (_slotHits != slotCount)
                 return;
 
@@ -89,11 +95,17 @@ namespace PizzaGame
         private void RotatePizza() => transform.Rotate(new Vector3(0, degreesPerSecond, 0) * Time.deltaTime);
 
         private void IngredientSpawnWithClick()
-        {
+        {   
+
             if (!Input.GetMouseButtonDown(0) || EventSystem.current.IsPointerOverGameObject())
                 return;
 
-            Ingredient randomIngredientPrefab = _recipe.GetRandomIngredient().Prefab;
+            //currentIngredient = _recipe.GetRandomIngredient();
+
+            Ingredient randomIngredientPrefab = currentIngredient.Prefab;
+            currentIngredient = nextIngredient;
+            nextIngredient = _recipe.GetRandomIngredient();
+
             Ray ray = KitchenManagement.GetMainCamera().ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(ray.origin, ray.direction, Color.black, 100);
 
@@ -113,6 +125,6 @@ namespace PizzaGame
             KitchenManagement.DestroyAllIngredients();
             KitchenManagement.DestroyFinishedPizza();
             KitchenManagement.GenerateRandomPizza();
-        }
+        }   
     }
 }

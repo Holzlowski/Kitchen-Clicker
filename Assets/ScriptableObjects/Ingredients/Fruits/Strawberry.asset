@@ -15,3 +15,4 @@ MonoBehaviour:
   value: 0
   prefab: {fileID: -2260825565745367454, guid: fada37df7fb2c054d98795274b8c8647, type: 3}
   slotPrefab: {fileID: -8985847744175872757, guid: de01fed4c6dfd48b58225dac71ee5c02, type: 3}
+  sprite: {fileID: 21300000, guid: b72023ef6c5c54ebb94ee8c520cfe2e9, type: 3}

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace PizzaGame
 {
@@ -8,9 +9,12 @@ namespace PizzaGame
         [SerializeField] private int value;
         [SerializeField] private Ingredient prefab;
         [SerializeField] private Slot slotPrefab;
+        [SerializeField] private Sprite sprite;
 
         public int Value => value;
         public Ingredient Prefab => prefab;
         public Slot SlotPrefab => slotPrefab;
+
+        public Sprite ingredientImage => sprite;
     }
 }

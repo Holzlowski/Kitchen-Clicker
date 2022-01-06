@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using PizzaGame;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Singletons
 {
@@ -58,6 +59,7 @@ namespace Singletons
         private void Update()
         {
             _camTransform.position = new Vector3(0, distanceToCamera, 0);
+            getCurrentIngredientSprite();
 
             // TODO: Add loop for passive currency generation based on bought items
         }
@@ -72,6 +74,11 @@ namespace Singletons
             int randomIndex = Random.Range(0, Instance._availableRecipes.Count);
             Instance._currentPizza = Instantiate(Instance.pizzaPrefab);
             Instance._currentPizza.AddRecipe(Instance._availableRecipes[randomIndex]);
+        }
+
+        public static Sprite getCurrentIngredientSprite()
+        {
+            return Instance._currentPizza.getCurrentIngredient.ingredientImage;
         }
 
         public static void DestroyFinishedPizza()

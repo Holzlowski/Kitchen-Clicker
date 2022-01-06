@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UI;
+using UnityEngine.UI;
 using UnityEngine;
 
 namespace Singletons
@@ -12,6 +13,7 @@ namespace Singletons
         [SerializeField] private Notification notification;
         [SerializeField] private TMP_Text wallet;
         [SerializeField] private GameObject store;
+        [SerializeField] private Button nextIngredient;
 
         private static readonly List<GameObject> ActiveWindows = new List<GameObject>();
 
@@ -56,6 +58,7 @@ namespace Singletons
 
         private void Update()
         {
+            showIngredient();
             instance.wallet.text = $"₱ {Wallet.GetBalance()}";
 
             if (Input.GetButtonDown("Cancel"))
@@ -64,5 +67,8 @@ namespace Singletons
             if (Input.GetButtonDown("Store"))
                 OpenWindow(store);
         }
+
+
+         private void showIngredient() => nextIngredient.image.sprite = KitchenManagement.getCurrentIngredientSprite();
     }
 }
