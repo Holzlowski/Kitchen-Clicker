@@ -58,7 +58,7 @@ namespace Singletons
 
         private void Update()
         {
-            showIngredient();
+            //showIngredient();
             instance.wallet.text = $"₱ {Wallet.GetBalance()}";
 
             if (Input.GetButtonDown("Cancel"))
@@ -69,6 +69,6 @@ namespace Singletons
         }
 
 
-         private void showIngredient() => nextIngredient.image.sprite = KitchenManagement.getCurrentIngredientSprite();
+         public static void showIngredient() => instance.nextIngredient.image.sprite = KitchenManagement.getCurrentIngredientSprite();
     }
 }
