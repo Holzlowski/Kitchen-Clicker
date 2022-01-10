@@ -34,6 +34,7 @@ namespace PizzaGame
 
             currentIngredient = _recipe.GetRandomIngredient();
             nextIngredient = _recipe.GetRandomIngredient();
+            UIManager.showIngredient();
         }
 
         private void Update()
@@ -100,10 +101,9 @@ namespace PizzaGame
             if (!Input.GetMouseButtonDown(0) || EventSystem.current.IsPointerOverGameObject())
                 return;
 
-            //currentIngredient = _recipe.GetRandomIngredient();
-
             Ingredient randomIngredientPrefab = currentIngredient.Prefab;
             currentIngredient = nextIngredient;
+            UIManager.showIngredient();
             nextIngredient = _recipe.GetRandomIngredient();
 
             Ray ray = KitchenManagement.GetMainCamera().ScreenPointToRay(Input.mousePosition);

@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 501009057}
   - component: {fileID: 501009056}
   m_Layer: 5
-  m_Name: Next Ingrdient
+  m_Name: Next Ingredient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
