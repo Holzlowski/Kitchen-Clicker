@@ -1,34 +1,8 @@
-using UnityEngine;
-
 namespace Singletons
 {
-    public class Wallet : MonoBehaviour
+    public class Wallet : Singleton<Wallet>
     {
-        private static Wallet Instance
-        {
-            get
-            {
-                if (instance != null)
-                    return instance;
-                Debug.LogError("Wallet instance doesn't exist in scene (may cause a NullPointerException)");
-                return null;
-            }
-        }
-
-        private static Wallet instance;
-
         private int _money;
-
-        private void Awake()
-        {
-            if (instance != null)
-            {
-                Debug.LogError("There is more than one wallet instance in this scene");
-                Destroy(this);
-            }
-
-            instance = this;
-        }
 
         public static int GetBalance() => Instance._money;
 

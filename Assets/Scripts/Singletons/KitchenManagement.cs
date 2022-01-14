@@ -1,11 +1,10 @@
 using System.Collections.Generic;
 using PizzaGame;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Singletons
 {
-    public class KitchenManagement : MonoBehaviour
+    public class KitchenManagement : Singleton<KitchenManagement>
     {
         [SerializeField] private Recipe startRecipe;
         [SerializeField] private Pizza pizzaPrefab;
@@ -14,19 +13,6 @@ namespace Singletons
 
         private Transform _camTransform;
         private Pizza _currentPizza;
-
-        private static KitchenManagement Instance
-        {
-            get
-            {
-                if (instance != null)
-                    return instance;
-                Debug.LogError("KitchenManagement instance doesn't exist in scene (may cause a NullPointerException)");
-                return null;
-            }
-        }
-
-        private static KitchenManagement instance;
 
         private List<Recipe> _availableRecipes;
         // TODO: Add list of other bought items (e.g. cooks, stoves -> passive generators)
@@ -40,16 +26,9 @@ namespace Singletons
             GenerateRandomPizza();
         }
 
-        private void Awake()
+        protected override void Awake()
         {
-            if (instance != null)
-            {
-                Debug.LogError("There is more than one KitchenManagement instance in this scene");
-                Destroy(this);
-            }
-
-            instance = this;
-
+            base.Awake();
             _availableRecipes = new List<Recipe>
             {
                 startRecipe,
