@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &15511672 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7339782758627100765, guid: 27c36ad8e41134690bbf79c39177d2b3, type: 3}
+  m_PrefabInstance: {fileID: 2044961575}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &381831321
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa73225f7fd4134b2ef2e7b230aa262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startRecipe: {fileID: 11400000, guid: 66022f8bf5b1d42c394518dcf39b7744, type: 2}
+  startRecipe: {fileID: 11400000, guid: a38fca7829008ff40951513ee9ea0d14, type: 2}
   pizzaPrefab: {fileID: 8071127611716899527, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
   mainCamera: {fileID: 963194227}
   distanceToCamera: 8
@@ -550,6 +561,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1773269148480338045, guid: 27c36ad8e41134690bbf79c39177d2b3, type: 3}
+      propertyPath: nextIngredient
+      value: 
+      objectReference: {fileID: 15511672}
+    - target: {fileID: 6950054287110515729, guid: 27c36ad8e41134690bbf79c39177d2b3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339782758627100765, guid: 27c36ad8e41134690bbf79c39177d2b3, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27c36ad8e41134690bbf79c39177d2b3, type: 3}
 --- !u!1 &2059345511
@@ -576,7 +599,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2059345511}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9f803d53e11c13f4882734222e34a909, type: 3}
