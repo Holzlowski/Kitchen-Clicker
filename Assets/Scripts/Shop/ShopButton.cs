@@ -23,7 +23,7 @@ namespace Shop
 
         private void ButtonClick()
         {
-            if (_item.Buy())
+            if (_item.Buy() && !_item.AllowMultiBuy)
                 Destroy(gameObject);
         }
     }

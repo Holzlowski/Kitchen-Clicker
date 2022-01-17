@@ -9,17 +9,17 @@ namespace Shop
         [SerializeField] private Sprite icon;
         [SerializeField] private int price;
         [SerializeField] private BuyableObject buyable;
+        [SerializeField] private bool allowMultiBuy;
 
         public Sprite Icon => icon;
         public int Price => price;
+        public bool AllowMultiBuy => allowMultiBuy;
 
         public bool Buy()
         {
             if (!Wallet.RemoveMoney(price))
             {
-                // TODO: Add UI notification
                 UIManager.ShowNotification("Not enough money");
-                Debug.Log("Not enough money");
                 return false;
             }
 

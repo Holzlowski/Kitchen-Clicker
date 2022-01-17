@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9adba283ce34fdeb264654670c9ed25, type: 3}
   m_Name: Chocolate
   m_EditorClassIdentifier: 
-  value: 0
+  value: 5
   prefab: {fileID: -450828298845821367, guid: 55297f3c3c0e4184ea46dab78739c6e6, type: 3}
   slotPrefab: {fileID: 1218069448127789805, guid: ca54eb0240d024d28b669652b60f3204, type: 3}
   sprite: {fileID: 21300000, guid: 6abcc03757a494181bcd2f733079582b, type: 3}

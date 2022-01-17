@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9adba283ce34fdeb264654670c9ed25, type: 3}
   m_Name: Cherries
   m_EditorClassIdentifier: 
-  value: 0
+  value: 3
   prefab: {fileID: -5931625615743750703, guid: 7087f974a62fb4c41bddb1443a06b617, type: 3}
   slotPrefab: {fileID: -6223418579883968879, guid: 0e62ed17086ea43189b63c279eb4f058, type: 3}
   sprite: {fileID: 21300000, guid: 55e29d9a03fe24caba914d7134c713c5, type: 3}
