@@ -109,7 +109,7 @@ namespace PizzaGame
             Ray ray = KitchenManagement.GetMainCamera().ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(ray.origin, ray.direction, Color.black, 100);
 
-            if (!Physics.Raycast(ray, out RaycastHit hit) || !hit.transform.CompareTag("Pizza"))
+            if (!Physics.Raycast(ray, out RaycastHit hit))
                 return;
 
             Vector3 fallingPosition = new Vector3(hit.point.x, hit.point.y + fallingDistance, hit.point.z);
