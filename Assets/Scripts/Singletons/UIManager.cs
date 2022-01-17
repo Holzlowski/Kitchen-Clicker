@@ -3,6 +3,7 @@ using TMPro;
 using UI;
 using UnityEngine.UI;
 using UnityEngine;
+using System.Collections;
 
 namespace Singletons
 {
@@ -14,6 +15,9 @@ namespace Singletons
         [SerializeField] private TMP_Text wallet;
         [SerializeField] private GameObject store;
         [SerializeField] private Button nextIngredient;
+        [SerializeField] private Camera mainCam;
+        [SerializeField] private Animator camAnim;
+
 
         private static readonly List<GameObject> ActiveWindows = new List<GameObject>();
 
@@ -56,9 +60,15 @@ namespace Singletons
             instance = this;
         }
 
+        private void Start() {
+            mainCam = KitchenManagement.GetMainCamera();
+            camAnim = mainCam.GetComponent<Animator>();
+
+        }
         private void Update()
         {
             //showIngredient();
+
             instance.wallet.text = $"₱ {Wallet.GetBalance()}";
 
             if (Input.GetButtonDown("Cancel"))
@@ -69,6 +79,42 @@ namespace Singletons
         }
 
 
-         public static void showIngredient() => instance.nextIngredient.image.sprite = KitchenManagement.getCurrentIngredientSprite();
+        public static void showIngredient() => instance.nextIngredient.image.sprite = KitchenManagement.getCurrentIngredientSprite();
+
+        public void turnCamera(){
+
+            if(!camAnim.GetBool("cameraTurned") && mainCam.transform.eulerAngles.x == 90){
+                camAnim.SetBool("cameraTurned", true);
+            }
+            else if(camAnim.GetBool("cameraTurned") && mainCam.transform.eulerAngles.x == 0){
+               camAnim.SetBool("cameraTurned", false);
+            }
+        }
+
+
+
+
+
+        //  IEnumerator turnCamera(){
+
+        //      Vector3 rot = new Vector3(90,0,0);
+
+        //     if(cameraTurned){
+        //         var fromAngle = mainCam.transform.rotation;
+        //         var toAngle = Quaternion.Euler(mainCam.transform.eulerAngles - rot);
+        //         transform.rotation = Quaternion.Slerp(fromAngle, toAngle, 20*Time.deltaTime);
+  
+        //     } 
+        //     else if(!cameraTurned){
+        //         var fromAngle = mainCam.transform.rotation;
+        //         var toAngle = Quaternion.Euler(mainCam.transform.eulerAngles + rot);
+        //         transform.rotation = Quaternion.Slerp(fromAngle, toAngle, 20*Time.deltaTime);
+        //     }
+
+        //     yield return null;
+
+        //  }
+
+
     }
 }
