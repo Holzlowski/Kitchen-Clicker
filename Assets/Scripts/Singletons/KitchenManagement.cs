@@ -37,7 +37,7 @@ namespace Singletons
 
         private void Update()
         {
-            _camTransform.position = new Vector3(0, distanceToCamera, 0);
+            _camTransform.position = new Vector3(_camTransform.rotation.x, distanceToCamera, _camTransform.rotation.z);
             getCurrentIngredientSprite();
 
             // TODO: Add loop for passive currency generation based on bought items
