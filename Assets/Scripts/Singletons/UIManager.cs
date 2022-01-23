@@ -2,9 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UI;
 using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
-
 
 namespace Singletons
 {
@@ -49,14 +47,15 @@ namespace Singletons
 
         public static void ShowNotification(string text) => Instance.notification.ShowNotification(text);
 
-        private void Start() {
+        private void Start()
+        {
             mainCam = KitchenManagement.GetMainCamera();
             camAnim = mainCam.GetComponent<Animator>();
-
         }
+
         private void Update()
         {
-            instance.wallet.text = $"₱ {Wallet.GetBalance()}";
+            Instance.wallet.text = $"₱ {Wallet.GetBalance()}";
 
             if (Input.GetButtonDown("Cancel"))
                 CloseActiveWindow();
@@ -66,18 +65,19 @@ namespace Singletons
         }
 
 
-        public void turnCamera(){
-
-            if(!camAnim.GetBool("cameraTurned") && mainCam.transform.eulerAngles.x == 90){
+        public void TurnCamera()
+        {
+            if (!camAnim.GetBool("cameraTurned") && mainCam.transform.eulerAngles.x == 90)
+            {
                 camAnim.SetBool("cameraTurned", true);
             }
-            else if(camAnim.GetBool("cameraTurned") && mainCam.transform.eulerAngles.x == 0){
-               camAnim.SetBool("cameraTurned", false);
+            else if (camAnim.GetBool("cameraTurned") && mainCam.transform.eulerAngles.x == 0)
+            {
+                camAnim.SetBool("cameraTurned", false);
             }
         }
 
         public static void showIngredient() =>
             Instance.nextIngredient.sprite = KitchenManagement.getCurrentIngredientSprite();
-
     }
 }
