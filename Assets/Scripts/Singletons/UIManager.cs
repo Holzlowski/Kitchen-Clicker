@@ -1,22 +1,22 @@
 using System.Collections.Generic;
 using TMPro;
 using UI;
-using UnityEngine.UI;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+
 
 namespace Singletons
 {
-    public class UIManager : MonoBehaviour
+    public class UIManager : Singleton<UIManager>
     {
-        private static UIManager instance;
-
         [SerializeField] private Notification notification;
         [SerializeField] private TMP_Text wallet;
         [SerializeField] private GameObject store;
-        [SerializeField] private Button nextIngredient;
+
         [SerializeField] private Camera mainCam;
         [SerializeField] private Animator camAnim;
+        [SerializeField] private Image nextIngredient;
 
 
         private static readonly List<GameObject> ActiveWindows = new List<GameObject>();
@@ -47,18 +47,7 @@ namespace Singletons
             CloseWindowAtIndex(ActiveWindows.FindLastIndex(w => w == window));
         }
 
-        public static void ShowNotification(string text) => instance.notification.ShowNotification(text);
-
-        private void Awake()
-        {
-            if (instance != null)
-            {
-                Debug.LogError("There is more than one instance of UIManager in the current scene.");
-                DestroyImmediate(gameObject);
-            }
-
-            instance = this;
-        }
+        public static void ShowNotification(string text) => Instance.notification.ShowNotification(text);
 
         private void Start() {
             mainCam = KitchenManagement.GetMainCamera();
@@ -67,8 +56,6 @@ namespace Singletons
         }
         private void Update()
         {
-            //showIngredient();
-
             instance.wallet.text = $"₱ {Wallet.GetBalance()}";
 
             if (Input.GetButtonDown("Cancel"))
@@ -78,8 +65,6 @@ namespace Singletons
                 OpenWindow(store);
         }
 
-
-        public static void showIngredient() => instance.nextIngredient.image.sprite = KitchenManagement.getCurrentIngredientSprite();
 
         public void turnCamera(){
 
@@ -91,30 +76,8 @@ namespace Singletons
             }
         }
 
-
-
-
-
-        //  IEnumerator turnCamera(){
-
-        //      Vector3 rot = new Vector3(90,0,0);
-
-        //     if(cameraTurned){
-        //         var fromAngle = mainCam.transform.rotation;
-        //         var toAngle = Quaternion.Euler(mainCam.transform.eulerAngles - rot);
-        //         transform.rotation = Quaternion.Slerp(fromAngle, toAngle, 20*Time.deltaTime);
-  
-        //     } 
-        //     else if(!cameraTurned){
-        //         var fromAngle = mainCam.transform.rotation;
-        //         var toAngle = Quaternion.Euler(mainCam.transform.eulerAngles + rot);
-        //         transform.rotation = Quaternion.Slerp(fromAngle, toAngle, 20*Time.deltaTime);
-        //     }
-
-        //     yield return null;
-
-        //  }
-
+        public static void showIngredient() =>
+            Instance.nextIngredient.sprite = KitchenManagement.getCurrentIngredientSprite();
 
     }
 }
