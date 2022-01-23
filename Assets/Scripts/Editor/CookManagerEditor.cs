@@ -11,7 +11,7 @@ namespace Editor
         {
             base.OnInspectorGUI();
             if (GUILayout.Button("Add Cook"))
-                CookManager.AddCook(1f, 1f);
+                CookManager.AddCook(0.5f, 1f);
         }
     }
 }
