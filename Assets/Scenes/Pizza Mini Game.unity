@@ -785,7 +785,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa73225f7fd4134b2ef2e7b230aa262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelLabel: {fileID: 0}
   startRecipe: {fileID: 11400000, guid: a38fca7829008ff40951513ee9ea0d14, type: 2}
   pizzaPrefab: {fileID: 8071127611716899527, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
   mainCamera: {fileID: 963194227}
@@ -1106,7 +1105,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -80}
+  m_AnchoredPosition: {x: 100, y: -15}
   m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1115158173
@@ -2190,6 +2189,14 @@ PrefabInstance:
     - target: {fileID: 1773269148734561990, guid: 27c36ad8e41134690bbf79c39177d2b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390193176040990105, guid: 27c36ad8e41134690bbf79c39177d2b3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344975996820398186, guid: 27c36ad8e41134690bbf79c39177d2b3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 6950054287110515729, guid: 27c36ad8e41134690bbf79c39177d2b3, type: 3}
       propertyPath: m_IsActive
