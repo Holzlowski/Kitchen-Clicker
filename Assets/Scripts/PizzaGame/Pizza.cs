@@ -21,8 +21,9 @@ namespace PizzaGame
         [Header("Pizza Rotation")] [SerializeField]
         private float degreesPerSecond = 20f;
 
-        private readonly List<Vector3> _slotCoords = new List<Vector3>();
+        private readonly List<Slot> _slots = new List<Slot>();
         private int _slotHits;
+        private int randomIndex;
         private Recipe _recipe;
         [SerializeField] private IngredientType currentIngredient, nextIngredient;
         public IngredientType getCurrentIngredient => currentIngredient;
@@ -32,8 +33,8 @@ namespace PizzaGame
             ObjectToCenter();
             SlotSpawns();
 
-            currentIngredient = _recipe.GetRandomIngredient();
-            nextIngredient = _recipe.GetRandomIngredient();
+            currentIngredient = _slots[randomIndex].GetIngredientType();
+            nextIngredient = _slots[randomIndex].GetIngredientType();
             UIManager.showIngredient();
         }
 
@@ -51,6 +52,12 @@ namespace PizzaGame
 
         public void AddHit() => _slotHits++;
 
+        public void RemoveSlotFromList(Slot slot) {
+            _slots.Remove(slot);
+            randomIndex = Random.Range(0, _slots.Count);
+            if (_slots.Count > 0) nextIngredient = _slots[randomIndex].GetIngredientType();
+        }
+
         public void AddRecipe(Recipe currentRecipe) => _recipe = currentRecipe;
 
         private void ObjectToCenter() => transform.position = Vector3.zero;
@@ -66,9 +73,9 @@ namespace PizzaGame
                     var circlePos = Random.insideUnitCircle * spawnRadius;
                     spawnPos = new Vector3(circlePos.x, 0.175f, circlePos.y);
                     var ok = true;
-                    foreach (var slot in _slotCoords)
+                    foreach (var slot in _slots)
                     {
-                        var dist = (slot - spawnPos).magnitude;
+                        var dist = (slot.transform.position - spawnPos).magnitude;
                         if (dist < minDist)
                         {
                             ok = false;
@@ -84,12 +91,12 @@ namespace PizzaGame
                     attempts++;
                 }
 
-                _slotCoords.Add(spawnPos);
                 var randomIngredient = _recipe.GetRandomIngredient();
                 var slotInstance = Instantiate(randomIngredient.SlotPrefab, spawnPos, Quaternion.identity, transform);
                 slotInstance.Initialize(randomIngredient);
                 slotInstance.pizza = this;
                 slotInstance.gameObject.SetActive(true);
+                _slots.Add(slotInstance);
             }
         }
 
@@ -97,14 +104,12 @@ namespace PizzaGame
 
         private void IngredientSpawnWithClick()
         {   
-
             if (!Input.GetMouseButtonDown(0) || EventSystem.current.IsPointerOverGameObject())
                 return;
 
             Ingredient randomIngredientPrefab = currentIngredient.Prefab;
             currentIngredient = nextIngredient;
             UIManager.showIngredient();
-            nextIngredient = _recipe.GetRandomIngredient();
 
             Ray ray = KitchenManagement.GetMainCamera().ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(ray.origin, ray.direction, Color.black, 100);

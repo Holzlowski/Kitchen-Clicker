@@ -10,6 +10,8 @@ public class Slot : MonoBehaviour
 
     public void Initialize(IngredientType ingredientType) => _ingredientType = ingredientType;
 
+    public IngredientType GetIngredientType() => _ingredientType;
+
     private void OnTriggerEnter(Collider other)
     {
         var ingredient = other.GetComponent<Ingredient>();
@@ -23,6 +25,7 @@ public class Slot : MonoBehaviour
             return;
 
         pizza.AddHit();
+        pizza.RemoveSlotFromList(this);
         ingredient.IsInPlace = true;
         Wallet.AddMoney(ingredient.Type.Value);
         Destroy(gameObject);
