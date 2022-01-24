@@ -14,7 +14,8 @@ namespace Singletons
         [SerializeField] private Transform[] cookPlaces;
 
         private float _previousTick;
-        private readonly List<Cook> _cooks = new List<Cook>();
+        private List<Cook> _cooks = new List<Cook>();
+        private List<CookVisualisation> _cookVisualisations = new List<CookVisualisation>();
 
         private void Start() => cookCountLabel.text = "0";
 
@@ -44,6 +45,18 @@ namespace Singletons
             cook.HitEvent += visualisation.showHit;
             cook.MissEvent += visualisation.missHit;
             cook.CompletedEvent += _ => visualisation.pizzaComplete();
+            Instance._cookVisualisations.Add(visualisation);
+        }
+
+        public static void DeleteAllCooks()
+        {       
+            Instance._cooks = new List<Cook>();
+            foreach (CookVisualisation visualisation in Instance._cookVisualisations)
+            {
+                Destroy(visualisation.gameObject);
+            }
+            Instance._cookVisualisations = new List<CookVisualisation>();
+            Instance.cookCountLabel.text = "0";
         }
     }
 }

@@ -10,8 +10,7 @@ namespace PizzaGame
     {
         [Header("Slot Spawn Options")] [SerializeField]
         private float spawnRadius = 1;
-
-        [SerializeField] private int slotCount = 5;
+        private int slotCount;
         [SerializeField] private float minDist;
         [SerializeField] private int maxAttempts;
        
@@ -58,7 +57,12 @@ namespace PizzaGame
             if (_slots.Count > 0) nextIngredient = _slots[randomIndex].GetIngredientType();
         }
 
-        public void AddRecipe(Recipe currentRecipe) => _recipe = currentRecipe;
+        public void Initialize(Recipe currentRecipe, Vector3 scale, int slotCount) {
+            _recipe = currentRecipe;
+            this.slotCount = slotCount;
+            // TODO: Scale richtig draufaddieren (nicht jedes mal wenn neue Pizza generiert wird)
+            // this.transform.localScale += scale;
+        }
 
         private void ObjectToCenter() => transform.position = Vector3.zero;
 

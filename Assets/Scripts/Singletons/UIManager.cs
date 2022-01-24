@@ -10,8 +10,8 @@ namespace Singletons
     {
         [SerializeField] private Notification notification;
         [SerializeField] private TMP_Text wallet;
+        [SerializeField] private TMP_Text level;
         [SerializeField] private GameObject store;
-
         [SerializeField] private Camera mainCam;
         [SerializeField] private Animator camAnim;
         [SerializeField] private Image nextIngredient;
@@ -56,6 +56,7 @@ namespace Singletons
         private void Update()
         {
             Instance.wallet.text = $"₱ {Wallet.GetBalance()}";
+            Instance.level.text = $"Level {KitchenManagement.GetLevel()}";
 
             if (Input.GetButtonDown("Cancel"))
                 CloseActiveWindow();

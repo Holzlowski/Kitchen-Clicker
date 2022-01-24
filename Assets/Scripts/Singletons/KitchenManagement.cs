@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using PizzaGame;
 using UnityEngine;
 
@@ -13,9 +14,9 @@ namespace Singletons
 
         private Transform _camTransform;
         private Pizza _currentPizza;
-
+        private int _level = 1;
+        [SerializeField] private int slotCount = 5;
         private List<Recipe> _availableRecipes;
-        // TODO: Add list of other bought items (e.g. cooks, stoves -> passive generators)
 
         private void Start()
         {
@@ -39,10 +40,9 @@ namespace Singletons
         {
             _camTransform.position = new Vector3(_camTransform.rotation.x, distanceToCamera, _camTransform.rotation.z);
             getCurrentIngredientSprite();
-
-            // TODO: Add loop for passive currency generation based on bought items
         }
 
+        public static int GetLevel() => Instance._level;
         public static void AddRecipe(Recipe recipe) => Instance._availableRecipes.Add(recipe);
         public static Camera GetMainCamera() => Instance.mainCamera;
 
@@ -52,7 +52,8 @@ namespace Singletons
         {
             int randomIndex = Random.Range(0, Instance._availableRecipes.Count);
             Instance._currentPizza = Instantiate(Instance.pizzaPrefab);
-            Instance._currentPizza.AddRecipe(Instance._availableRecipes[randomIndex]);
+            Vector3 scale = new Vector3(Instance._level * 0.2f, Instance._level * 0.2f, Instance._level * 0.2f);
+            Instance._currentPizza.Initialize(Instance._availableRecipes[randomIndex], scale, Instance.slotCount);
         }
 
         public static Sprite getCurrentIngredientSprite()
@@ -72,6 +73,16 @@ namespace Singletons
             {
                 Destroy(ingredient);
             }
+        }
+
+        public static void LevelUp() 
+        {
+            Instance._availableRecipes = new List<Recipe>();
+            Wallet.ResetWallet();
+            CookManager.DeleteAllCooks();
+            GenerateRandomPizza();
+            Instance._level++;
+            Instance.slotCount++;
         }
     }
 }
