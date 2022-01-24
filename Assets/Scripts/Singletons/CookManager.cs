@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Idle.Cook;
+using PizzaGame;
 using TMPro;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ namespace Singletons
     {
         [SerializeField] private TMP_Text cookCountLabel;
         [SerializeField] private float tickSeconds = 3f;
+        [SerializeField] private CookVisualisation cookPrefab;
+        [SerializeField] private Transform[] cookPlaces;
 
         private float _previousTick;
         private readonly List<Cook> _cooks = new List<Cook>();
@@ -34,6 +37,13 @@ namespace Singletons
             Instance._cooks.Add(cook);
             // Update cook counter UI
             Instance.cookCountLabel.text = Instance._cooks.Count.ToString();
+
+            if(Instance._cooks.Count > Instance.cookPlaces.Length) return;
+
+            CookVisualisation visualisation = Instantiate(Instance.cookPrefab, Instance.cookPlaces[Instance._cooks.Count - 1].position, Quaternion.identity);
+            cook.HitEvent += visualisation.showHit;
+            cook.MissEvent += visualisation.missHit;
+            cook.CompletedEvent += _ => visualisation.pizzaComplete();
         }
     }
 }
