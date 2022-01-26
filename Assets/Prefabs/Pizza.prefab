@@ -109,6 +109,13 @@ MonoBehaviour:
   maxAttempts: 500
   fallingDistance: 2
   degreesPerSecond: 20
+  currentIngredient: {fileID: 0}
+  nextIngredient: {fileID: 0}
+  particleEffects:
+  - {fileID: 5646538091113214743, guid: b1c35782df279a747a791be9208f9cdb, type: 3}
+  - {fileID: 2019838277730488214, guid: d9aecb7483dbaa348a3cd761b2f4276e, type: 3}
+  - {fileID: 753863448984704855, guid: 40793ddc1e1eaf444a39c52557d37090, type: 3}
+  - {fileID: 6981936232258072787, guid: 3df3b8875619e0045bdf691c1bd82b76, type: 3}
 --- !u!1001 &9153594220621994
 PrefabInstance:
   m_ObjectHideFlags: 0

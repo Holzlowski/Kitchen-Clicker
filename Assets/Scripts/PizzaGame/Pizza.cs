@@ -3,6 +3,7 @@ using Singletons;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Util;
 
 namespace PizzaGame
 {
@@ -27,6 +28,7 @@ namespace PizzaGame
         private Recipe _recipe;
         [SerializeField] private IngredientType currentIngredient, nextIngredient;
         public IngredientType getCurrentIngredient => currentIngredient;
+        [SerializeField] private List<ParticleSystem> particleEffects = new List<ParticleSystem>();
 
         private void Start()
         {
@@ -48,6 +50,7 @@ namespace PizzaGame
                 return;
 
             FinishPizza();
+            particleEffects.Random().Play();
         }
 
         public void AddHit() => _slotHits++;
@@ -125,7 +128,7 @@ namespace PizzaGame
         private void OnDrawGizmosSelected() => Gizmos.DrawWireSphere(transform.position, spawnRadius);
 
         private void FinishPizza()
-        {
+        {   
             Wallet.AddMoney(_recipe.Bonus);
             KitchenManagement.DestroyAllIngredients();
             KitchenManagement.DestroyFinishedPizza();
