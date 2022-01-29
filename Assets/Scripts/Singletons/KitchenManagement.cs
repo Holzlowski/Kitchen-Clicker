@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using PizzaGame;
 using UnityEngine;
+using Util;
 
 namespace Singletons
 {
@@ -10,6 +11,7 @@ namespace Singletons
         [SerializeField] private Pizza pizzaPrefab;
         [SerializeField] private Camera mainCamera;
         [SerializeField] private float distanceToCamera = 0.85f;
+        [SerializeField] private List<ParticleSystem> particleEffects = new List<ParticleSystem>();
 
         private Transform _camTransform;
         private Pizza _currentPizza;
@@ -63,6 +65,7 @@ namespace Singletons
         public static void DestroyFinishedPizza()
         {
             Destroy(GameObject.FindWithTag("Pizza"));
+            Instance.particleEffects.Random().Play();
         }
 
         public static void DestroyAllIngredients()
