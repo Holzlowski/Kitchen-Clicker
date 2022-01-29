@@ -19,6 +19,8 @@ namespace PizzaGame
 
         [Header("Pizza Rotation")] [SerializeField]
         private float degreesPerSecond = 20f;
+        
+        [SerializeField] private List<ParticleSystem> particleEffects = new List<ParticleSystem>();
 
         private readonly List<Slot> _slots = new List<Slot>();
         private int _slotCount;
@@ -52,6 +54,7 @@ namespace PizzaGame
                 return;
 
             FinishPizza();
+            particleEffects.Random().Play();
         }
 
         public void AddHit() => _slotHits++;
@@ -147,6 +150,6 @@ namespace PizzaGame
             KitchenManagement.DestroyAllIngredients();
             KitchenManagement.DestroyPizza();
             KitchenManagement.GenerateRandomPizza();
-        }
+        }   
     }
 }

@@ -11,6 +11,7 @@ namespace Singletons
         [SerializeField] private Pizza pizzaPrefab;
         [SerializeField] private Camera mainCamera;
         [SerializeField] private float distanceToCamera = 0.85f;
+        [SerializeField] private List<ParticleSystem> particleEffects = new List<ParticleSystem>();
 
         private Transform _camTransform;
         private Pizza _currentPizza;
@@ -58,7 +59,11 @@ namespace Singletons
 
         public static Sprite GetCurrentIngredientSprite() => Instance._currentPizza.CurrentIngredient.ingredientImage;
 
-        public static void DestroyPizza() => Destroy(Instance._currentPizza.gameObject);
+        public static void DestroyPizza()
+        {
+            Destroy(Instance._currentPizza.gameObject);
+            Instance.particleEffects.Random().Play();
+        }
 
         public static void DestroyAllIngredients()
         {

@@ -10,7 +10,6 @@ namespace Singletons
     {
         [SerializeField] private TMP_Text cookCountLabel;
         [SerializeField] private float tickSeconds = 3f;
-        [SerializeField] private CookVisualisation cookPrefab;
         [SerializeField] private Transform[] cookPlaces;
 
         private float _previousTick;
@@ -31,7 +30,7 @@ namespace Singletons
             _previousTick = Time.time;
         }
 
-        public static void AddCook(float errorRate, float efficiency)
+        public static void AddCook(float errorRate, float efficiency, CookVisualisation cookPrefab)
         {
             // Create new cook and add to list
             Cook cook = new Cook(errorRate, efficiency);
@@ -41,7 +40,7 @@ namespace Singletons
 
             if(Instance._cooks.Count > Instance.cookPlaces.Length) return;
 
-            CookVisualisation visualisation = Instantiate(Instance.cookPrefab, Instance.cookPlaces[Instance._cooks.Count - 1].position, Quaternion.identity);
+            CookVisualisation visualisation = Instantiate(cookPrefab, Instance.cookPlaces[Instance._cooks.Count - 1].position, Quaternion.identity);
             cook.HitEvent += visualisation.showHit;
             cook.MissEvent += visualisation.missHit;
             cook.CompletedEvent += _ => visualisation.pizzaComplete();
