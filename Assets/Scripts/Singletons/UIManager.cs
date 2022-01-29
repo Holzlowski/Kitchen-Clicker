@@ -79,6 +79,6 @@ namespace Singletons
         }
 
         public static void showIngredient() =>
-            Instance.nextIngredient.sprite = KitchenManagement.getCurrentIngredientSprite();
+            Instance.nextIngredient.sprite = KitchenManagement.GetCurrentIngredientSprite();
     }
 }

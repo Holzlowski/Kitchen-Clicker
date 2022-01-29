@@ -16,9 +16,8 @@ namespace PizzaGame
 
         private void OnCollisionEnter(Collision other)
         {
-            if (!other.gameObject.CompareTag("Pizza")){
+            if (!other.gameObject.CompareTag("Pizza"))
                 return;
-            }
 
             // If ingredient lands on pizza, stick it to pizza
             transform.parent = other.transform;

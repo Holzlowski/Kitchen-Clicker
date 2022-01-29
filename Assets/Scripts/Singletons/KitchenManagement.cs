@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using TMPro;
 using PizzaGame;
 using UnityEngine;
+using Util;
 
 namespace Singletons
 {
@@ -38,8 +38,9 @@ namespace Singletons
 
         private void Update()
         {
-            _camTransform.position = new Vector3(_camTransform.rotation.x, distanceToCamera, _camTransform.rotation.z);
-            getCurrentIngredientSprite();
+            Quaternion camRotation = _camTransform.rotation;
+            _camTransform.position = new Vector3(camRotation.x, distanceToCamera, camRotation.z);
+            GetCurrentIngredientSprite();
         }
 
         public static int GetLevel() => Instance._level;
@@ -50,39 +51,31 @@ namespace Singletons
 
         public static void GenerateRandomPizza()
         {
-            int randomIndex = Random.Range(0, Instance._availableRecipes.Count);
             Instance._currentPizza = Instantiate(Instance.pizzaPrefab);
-            Vector3 scale = new Vector3(Instance._level * 0.2f, Instance._level * 0.2f, Instance._level * 0.2f);
-            Instance._currentPizza.Initialize(Instance._availableRecipes[randomIndex], scale, Instance.slotCount);
+            float scale = 1 + Instance._level * 0.1f;
+            Instance._currentPizza.Initialize(Instance._availableRecipes.Random(), scale, Instance.slotCount);
         }
 
-        public static Sprite getCurrentIngredientSprite()
-        {
-            return Instance._currentPizza.getCurrentIngredient.ingredientImage;
-        }
+        public static Sprite GetCurrentIngredientSprite() => Instance._currentPizza.CurrentIngredient.ingredientImage;
 
-        public static void DestroyFinishedPizza()
-        {
-            Destroy(GameObject.FindWithTag("Pizza"));
-        }
+        public static void DestroyPizza() => Destroy(Instance._currentPizza.gameObject);
 
         public static void DestroyAllIngredients()
         {
             GameObject[] ingredients = GameObject.FindGameObjectsWithTag("Ingredient");
             foreach (GameObject ingredient in ingredients)
-            {
                 Destroy(ingredient);
-            }
         }
 
-        public static void LevelUp() 
+        public static void LevelUp()
         {
-            Instance._availableRecipes = new List<Recipe>();
+            Instance._availableRecipes = new List<Recipe> { Instance.startRecipe };
             Wallet.ResetWallet();
             CookManager.DeleteAllCooks();
-            GenerateRandomPizza();
             Instance._level++;
             Instance.slotCount++;
+            DestroyPizza();
+            GenerateRandomPizza();
         }
     }
 }
