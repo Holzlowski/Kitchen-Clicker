@@ -15,7 +15,7 @@ namespace Shop
         public int Price => price;
         public bool AllowMultiBuy => allowMultiBuy;
 
-        public bool Buy()
+        public virtual bool Buy()
         {
             if (!Wallet.RemoveMoney(price))
             {
