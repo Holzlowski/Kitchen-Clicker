@@ -10,8 +10,7 @@ namespace Editor
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
-            if (GUILayout.Button("Add Cook"))
-                CookManager.AddCook(0.5f, 1f);
+            // if (GUILayout.Button("Add Cook")) CookManager.AddCook(0.5f, 1f);
         }
     }
 }
