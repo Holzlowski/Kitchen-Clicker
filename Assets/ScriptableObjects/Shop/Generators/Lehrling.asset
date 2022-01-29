@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15ff88d5fe614bc886d7ff63cf3483c3, type: 3}
-  m_Name: Cook Lvl. 1
+  m_Script: {fileID: 11500000, guid: 1365a7e5d69a4e7e82b7df55ac742f77, type: 3}
+  m_Name: Lehrling
   m_EditorClassIdentifier: 
-  errorRate: 0.8
-  efficiency: 0.1
-  cookPrefab: {fileID: 2905518609499661210, guid: 7423ac174933bf14c825de7c62c1d04c, type: 3}
+  icon: {fileID: 21300000, guid: 37f8599076bac482696089fcb9f9114d, type: 3}
+  price: 10
+  buyable: {fileID: 11400000, guid: 5a95f774f13f46b58170918467f8e183, type: 2}
+  allowMultiBuy: 1

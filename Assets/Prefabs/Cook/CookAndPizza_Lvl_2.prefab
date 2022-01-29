@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 8965138136989320786}
   - component: {fileID: 1126968688832635890}
   m_Layer: 0
-  m_Name: CookAndPizza
+  m_Name: CookAndPizza_Lvl_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +85,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pizza: {fileID: 1389134428852048555}
   throwPlace: {fileID: 7972380561056575658}
-  rightIngredients: []
   particleEffects:
   - {fileID: 5510516931932905236}
   - {fileID: 781442284089935760}
@@ -697,6 +696,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cook
       objectReference: {fileID: 0}
+    - target: {fileID: 6446892583610724899, guid: 7907be9b129fe3c40865822c0be2eee2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2393e7508a9e346529646228ceccc475, type: 2}
     m_RemovedComponents:
     - {fileID: 7261130892363110796, guid: 7907be9b129fe3c40865822c0be2eee2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7907be9b129fe3c40865822c0be2eee2, type: 3}

@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1365a7e5d69a4e7e82b7df55ac742f77, type: 3}
-  m_Name: Ingredient
+  m_Name: Chef de Cuisine
   m_EditorClassIdentifier: 
-  name: Ingredient
-  icon: {fileID: 21300000, guid: 8bbab8deeb4a542719d79f323ffb7817, type: 3}
+  icon: {fileID: 21300000, guid: 893c62fc0e01745efa20f920e32bfa69, type: 3}
+  price: 400
+  buyable: {fileID: 11400000, guid: 9dc7d4811f9439241a90e5b3297a5f96, type: 2}
+  allowMultiBuy: 1
