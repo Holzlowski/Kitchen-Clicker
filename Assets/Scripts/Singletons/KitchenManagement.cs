@@ -15,9 +15,9 @@ namespace Singletons
 
         private Transform _camTransform;
         private Pizza _currentPizza;
-
+        private int _level = 1;
+        [SerializeField] private int slotCount = 5;
         private List<Recipe> _availableRecipes;
-        // TODO: Add list of other bought items (e.g. cooks, stoves -> passive generators)
 
         private void Start()
         {
@@ -39,12 +39,12 @@ namespace Singletons
 
         private void Update()
         {
-            _camTransform.position = new Vector3(_camTransform.rotation.x, distanceToCamera, _camTransform.rotation.z);
-            getCurrentIngredientSprite();
-
-            // TODO: Add loop for passive currency generation based on bought items
+            Quaternion camRotation = _camTransform.rotation;
+            _camTransform.position = new Vector3(camRotation.x, distanceToCamera, camRotation.z);
+            GetCurrentIngredientSprite();
         }
 
+        public static int GetLevel() => Instance._level;
         public static void AddRecipe(Recipe recipe) => Instance._availableRecipes.Add(recipe);
         public static Camera GetMainCamera() => Instance.mainCamera;
 
@@ -52,19 +52,16 @@ namespace Singletons
 
         public static void GenerateRandomPizza()
         {
-            int randomIndex = Random.Range(0, Instance._availableRecipes.Count);
             Instance._currentPizza = Instantiate(Instance.pizzaPrefab);
-            Instance._currentPizza.AddRecipe(Instance._availableRecipes[randomIndex]);
+            float scale = 1 + Instance._level * 0.1f;
+            Instance._currentPizza.Initialize(Instance._availableRecipes.Random(), scale, Instance.slotCount);
         }
 
-        public static Sprite getCurrentIngredientSprite()
-        {
-            return Instance._currentPizza.getCurrentIngredient.ingredientImage;
-        }
+        public static Sprite GetCurrentIngredientSprite() => Instance._currentPizza.CurrentIngredient.ingredientImage;
 
-        public static void DestroyFinishedPizza()
+        public static void DestroyPizza()
         {
-            Destroy(GameObject.FindWithTag("Pizza"));
+            Destroy(Instance._currentPizza.gameObject);
             Instance.particleEffects.Random().Play();
         }
 
@@ -72,9 +69,18 @@ namespace Singletons
         {
             GameObject[] ingredients = GameObject.FindGameObjectsWithTag("Ingredient");
             foreach (GameObject ingredient in ingredients)
-            {
                 Destroy(ingredient);
-            }
+        }
+
+        public static void LevelUp()
+        {
+            Instance._availableRecipes = new List<Recipe> { Instance.startRecipe };
+            Wallet.ResetWallet();
+            CookManager.DeleteAllCooks();
+            Instance._level++;
+            Instance.slotCount++;
+            DestroyPizza();
+            GenerateRandomPizza();
         }
     }
 }
