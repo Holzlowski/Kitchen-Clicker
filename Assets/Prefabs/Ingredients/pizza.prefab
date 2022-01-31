@@ -54,6 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: b05d942d4996abd4eb0f4ab4e575d7f8, type: 2}
+  constraint: -10
   splashEffect: {fileID: 753863448984704853, guid: 40793ddc1e1eaf444a39c52557d37090, type: 3}
 --- !u!54 &4348094867526436049
 Rigidbody:
@@ -82,8 +83,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.87192446, y: 0.07649279, z: 0.8870957}
+  m_Center: {x: -0.0000001204241, y: 0.02241496, z: 0.00371692}
 --- !u!1 &2095739800781724993
 GameObject:
   m_ObjectHideFlags: 0
