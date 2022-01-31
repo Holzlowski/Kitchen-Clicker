@@ -1088,14 +1088,6 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7412534567370239139, guid: 27c36ad8e41134690bbf79c39177d2b3, type: 3}
-      propertyPath: items.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7412534567370239139, guid: 27c36ad8e41134690bbf79c39177d2b3, type: 3}
-      propertyPath: items.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: db2b054c5d5989c4aa5fd03e378fb695, type: 2}
     - target: {fileID: 7582428838736165692, guid: 27c36ad8e41134690bbf79c39177d2b3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1

@@ -93,7 +93,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buyButtonView: {fileID: 4431547456745072924}
   buyButtonPrefab: {fileID: 9114325236394282284, guid: 35264b554bb0e49d6953b26d1cc0eb8e, type: 3}
-  items: []
+  items:
+  - {fileID: 11400000, guid: db2b054c5d5989c4aa5fd03e378fb695, type: 2}
 --- !u!1 &972843625847141052
 GameObject:
   m_ObjectHideFlags: 0
