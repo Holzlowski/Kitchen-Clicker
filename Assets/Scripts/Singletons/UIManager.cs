@@ -16,7 +16,6 @@ namespace Singletons
         [SerializeField] private Animator camAnim;
         [SerializeField] private Image nextIngredient;
 
-
         private static readonly List<GameObject> ActiveWindows = new List<GameObject>();
 
         public static void OpenWindow(GameObject window)
@@ -63,6 +62,13 @@ namespace Singletons
 
             if (Input.GetButtonDown("Store"))
                 OpenWindow(store);
+
+            if( store.activeSelf == true){
+                Time.timeScale = 0;
+            }
+            else{
+                Time.timeScale = 1;
+            }
         }
 
 
