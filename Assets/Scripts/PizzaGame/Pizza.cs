@@ -15,11 +15,7 @@ namespace PizzaGame
         [SerializeField] private int maxAttempts;
 
         [Header("Ingredient Spawn Options")] [SerializeField]
-        private float fallingDistance = 20f;
-
-        [Header("Pizza Rotation")] [SerializeField]
-        private float degreesPerSecond = 20f;
-        
+        private float fallingDistance = 20f;        
         [SerializeField] private List<ParticleSystem> particleEffects = new List<ParticleSystem>();
 
         private readonly List<Slot> _slots = new List<Slot>();
@@ -46,7 +42,7 @@ namespace PizzaGame
 
         private void Update()
         {
-            RotatePizza();
+            RotatePizza(KitchenManagement.GetPizzaRotationSpeed());
 
             IngredientSpawnWithClick();
 
@@ -120,7 +116,7 @@ namespace PizzaGame
             return rotation;
         }
 
-        private void RotatePizza() => transform.Rotate(new Vector3(0, degreesPerSecond, 0) * Time.deltaTime);
+        private void RotatePizza(float degreesPerSecond) => transform.Rotate(new Vector3(0, degreesPerSecond, 0) * Time.deltaTime);
 
         private void IngredientSpawnWithClick()
         {
