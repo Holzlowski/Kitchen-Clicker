@@ -28,6 +28,9 @@ namespace PizzaGame
 
         public IngredientType CurrentIngredient => _currentIngredient;
 
+        private AudioSource pizzaAudio;
+        private SoundEffectManager soundManager;
+
         private void Start()
         {
             _camera = Camera.main;
@@ -38,6 +41,9 @@ namespace PizzaGame
             _currentIngredient = _slots.Random().GetIngredientType();
             _nextIngredient = _slots.Random().GetIngredientType();
             UIManager.showIngredient();
+
+            pizzaAudio = GetComponent<AudioSource>();
+            soundManager = GameObject.Find("=== MANAGERS ===").GetComponent<SoundEffectManager>();
         }
 
         private void Update()
@@ -144,6 +150,7 @@ namespace PizzaGame
         {
             Wallet.AddMoney(_recipe.Bonus);
             KitchenManagement.DestroyAllIngredients();
+            soundManager.getrandomCompleteSoundEffect();
             KitchenManagement.DestroyPizza();
             KitchenManagement.GenerateRandomPizza();
         }   

@@ -104,13 +104,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRadius: 2.7
-  slotCount: 10
   minDist: 0.7
   maxAttempts: 500
   fallingDistance: 2
-  degreesPerSecond: 20
-  currentIngredient: {fileID: 0}
-  nextIngredient: {fileID: 0}
   particleEffects:
   - {fileID: 5646538091113214743, guid: b1c35782df279a747a791be9208f9cdb, type: 3}
   - {fileID: 2019838277730488214, guid: d9aecb7483dbaa348a3cd761b2f4276e, type: 3}

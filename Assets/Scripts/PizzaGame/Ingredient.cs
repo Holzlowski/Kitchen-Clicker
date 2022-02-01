@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using Util;
 
 namespace PizzaGame
 {
@@ -11,6 +13,11 @@ namespace PizzaGame
         public IngredientType Type => type;
 
         public bool IsInPlace { get; set; }
+        private AudioSource audioSource;
+
+        private void Start() {
+            audioSource = GetComponent<AudioSource>();
+        }
 
         private void Update() => SelfDestruction(constraint);
 
@@ -35,6 +42,8 @@ namespace PizzaGame
             if (splashEffect != null)
             {
                 GameObject effect = Instantiate(splashEffect, transform.position, Quaternion.identity);
+                audioSource.clip = GameObject.Find("=== MANAGERS ===").GetComponent<SoundEffectManager>().getrandomSplashSoundEffect();
+                audioSource.Play();
                 Destroy(effect, 2);
             }
         }

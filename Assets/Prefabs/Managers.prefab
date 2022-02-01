@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7520973123308870415}
   - component: {fileID: 8026143441110230777}
   - component: {fileID: 7283494669705759169}
+  - component: {fileID: 639233409496813226}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -67,6 +68,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  degreesPerSecond: 25
   slotCount: 5
 --- !u!114 &7283494669705759169
 MonoBehaviour:
@@ -119,3 +121,24 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &639233409496813226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656370501661715900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b820599789a79e740b87c4d74adc1d52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splashSoundEffects:
+  - {fileID: 8300000, guid: 5fe0479b2cc1f4744a347ee3a89774a4, type: 3}
+  - {fileID: 8300000, guid: 22391820a51d9d049bb34803dd77d748, type: 3}
+  - {fileID: 8300000, guid: 79b68199f469905409b9b8f44520aace, type: 3}
+  completeSoundEffects:
+  - {fileID: 8300000, guid: f09485746dc39cb40879766e48522f1e, type: 3}
+  - {fileID: 8300000, guid: 0240d293d7305ac4ba1f8c22f1b3ac2e, type: 3}
+  - {fileID: 8300000, guid: b1724a304f98e9f48884eb3842efb4ad, type: 3}
+  - {fileID: 8300000, guid: 6e7c63f3bd54ab945adbd625376af0fb, type: 3}
