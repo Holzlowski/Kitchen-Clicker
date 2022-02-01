@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UI;
@@ -17,6 +18,7 @@ namespace Singletons
         [SerializeField] private Image nextIngredient;
 
         private static readonly List<GameObject> ActiveWindows = new List<GameObject>();
+        private static readonly int CameraTurned = Animator.StringToHash("cameraTurned");
 
         public static void OpenWindow(GameObject window)
         {
@@ -48,8 +50,13 @@ namespace Singletons
 
         private void Start()
         {
-            mainCam = KitchenManagement.GetMainCamera();
-            camAnim = mainCam.GetComponent<Animator>();
+            if (!Camera.main)
+            {
+                Debug.LogError("Main camera not found");
+                return;
+            }
+
+            camAnim = Camera.main.GetComponent<Animator>();
         }
 
         private void Update()
@@ -63,28 +70,19 @@ namespace Singletons
             if (Input.GetButtonDown("Store"))
                 OpenWindow(store);
 
-            if( store.activeSelf == true){
-                Time.timeScale = 0;
-            }
-            else{
-                Time.timeScale = 1;
-            }
+            Time.timeScale = store.activeSelf ? 0 : 1;
         }
 
 
         public void TurnCamera()
         {
-            if (!camAnim.GetBool("cameraTurned") && mainCam.transform.eulerAngles.x == 90)
-            {
-                camAnim.SetBool("cameraTurned", true);
-            }
-            else if (camAnim.GetBool("cameraTurned") && mainCam.transform.eulerAngles.x == 0)
-            {
-                camAnim.SetBool("cameraTurned", false);
-            }
+            if (!camAnim.GetBool(CameraTurned) && Math.Abs(mainCam.transform.eulerAngles.x - 90) < 0.001)
+                camAnim.SetBool(CameraTurned, true);
+            else if (camAnim.GetBool(CameraTurned) && mainCam.transform.eulerAngles.x == 0)
+                camAnim.SetBool(CameraTurned, false);
         }
 
-        public static void showIngredient() =>
+        public static void ShowIngredient() =>
             Instance.nextIngredient.sprite = KitchenManagement.GetCurrentIngredientSprite();
     }
 }
