@@ -3,35 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using Util;
 
-public class SoundEffectManager : MonoBehaviour
+namespace Singletons
 {
-    [SerializeField] private List<AudioClip> splashSoundEffects;
-    [SerializeField] private List<AudioClip> completeSoundEffects;
-    private AudioSource managerAudioSource;
-
-    private void Start() 
+    public class SoundEffectManager : Singleton<SoundEffectManager>
     {
-        managerAudioSource = GetComponent<AudioSource>();
-    }
-    
-    private AudioClip getRandomSoundEffect(List<AudioClip> sounds)
-    {   
-        if(sounds.Count > 0 )
+        [SerializeField] private List<AudioClip> splashSoundEffects;
+        [SerializeField] private List<AudioClip> completeSoundEffects;
+        private AudioSource managerAudioSource;
+
+        private void Start()
         {
-            return sounds.Random();
+            Instance.managerAudioSource = GetComponent<AudioSource>();
         }
-        else
+
+        private AudioClip getRandomSoundEffect(List<AudioClip> sounds)
         {
-            return null;
-        } 
-    }
+            if (sounds.Count > 0)
+            {
+                return sounds.Random();
+            }
+            else
+            {
+                return null;
+            }
+        }
 
-    public AudioClip getrandomSplashSoundEffect(){
-        return getRandomSoundEffect(splashSoundEffects);
-    }
+        public static void getrandomSplashSoundEffect()
+        {
+            Instance.managerAudioSource.clip = Instance.getRandomSoundEffect(Instance.splashSoundEffects);
+            Instance.managerAudioSource.Play();
+        }
 
-    public void getrandomCompleteSoundEffect(){
-        managerAudioSource.clip = getRandomSoundEffect(completeSoundEffects);
-        managerAudioSource.Play();
+        public static void getrandomCompleteSoundEffect()
+        {
+            Instance.managerAudioSource.clip = Instance.getRandomSoundEffect(Instance.completeSoundEffects);
+            Instance.managerAudioSource.Play();
+        }
     }
 }
+

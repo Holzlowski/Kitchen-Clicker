@@ -1,9 +1,9 @@
-using System.Collections.Generic;
+using Singletons;
 using UnityEngine;
-using Util;
 
 namespace PizzaGame
 {
+    [RequireComponent(typeof(AudioSource))]
     public class Ingredient : MonoBehaviour
     {
         [SerializeField] private IngredientType type;
@@ -42,7 +42,7 @@ namespace PizzaGame
             if (splashEffect != null)
             {
                 GameObject effect = Instantiate(splashEffect, transform.position, Quaternion.identity);
-                audioSource.clip = GameObject.Find("=== MANAGERS ===").GetComponent<SoundEffectManager>().getrandomSplashSoundEffect();
+                SoundEffectManager.getrandomSplashSoundEffect();
                 audioSource.Play();
                 Destroy(effect, 2);
             }
