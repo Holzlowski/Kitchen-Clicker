@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
 using Idle.Cook;
-using PizzaGame;
 using TMPro;
 using UnityEngine;
 
@@ -13,7 +13,7 @@ namespace Singletons
         [SerializeField] private Transform[] cookPlaces;
 
         private float _previousTick;
-        private List<Cook> _cooks = new List<Cook>();
+        private Dictionary<CookGenerator, List<Cook>> _cooks = new Dictionary<CookGenerator, List<Cook>>();
         private List<CookVisualisation> _cookVisualisations = new List<CookVisualisation>();
 
         private void Start() => cookCountLabel.text = "0";
@@ -24,23 +24,30 @@ namespace Singletons
             if (Time.time < _previousTick + tickSeconds)
                 return;
 
-            foreach (Cook cook in _cooks)
+            foreach (var cook in _cooks.Values.SelectMany(cooks => cooks))
                 cook.DoTick();
 
             _previousTick = Time.time;
         }
 
-        public static void AddCook(float errorRate, float efficiency, CookVisualisation cookPrefab)
+        public static int GetCookCountForType(CookGenerator type) =>
+            Instance._cooks.TryGetValue(type, out List<Cook> cooks) ? cooks.Count : 0;
+
+        public static void AddCook(CookGenerator generator, CookVisualisation cookPrefab)
         {
             // Create new cook and add to list
-            Cook cook = new Cook(errorRate, efficiency);
-            Instance._cooks.Add(cook);
+            Cook cook = new Cook(generator.ErrorRate, generator.Efficiency);
+            if (!Instance._cooks.ContainsKey(generator))
+                Instance._cooks.Add(generator, new List<Cook>());
+            Instance._cooks[generator].Add(cook);
+
             // Update cook counter UI
-            Instance.cookCountLabel.text = Instance._cooks.Count.ToString();
+            Instance.cookCountLabel.text = Instance._cooks.SelectMany(c => c.Value).Count().ToString();
 
-            if(Instance._cooks.Count > Instance.cookPlaces.Length) return;
+            if (Instance._cooks.Count > Instance.cookPlaces.Length) return;
 
-            CookVisualisation visualisation = Instantiate(cookPrefab, Instance.cookPlaces[Instance._cooks.Count - 1].position, Quaternion.identity);
+            CookVisualisation visualisation = Instantiate(cookPrefab,
+                Instance.cookPlaces[Instance._cooks.Count - 1].position, Quaternion.identity);
             cook.HitEvent += visualisation.showHit;
             cook.MissEvent += visualisation.missHit;
             cook.CompletedEvent += _ => visualisation.pizzaComplete();
@@ -48,12 +55,10 @@ namespace Singletons
         }
 
         public static void DeleteAllCooks()
-        {       
-            Instance._cooks = new List<Cook>();
+        {
+            Instance._cooks = new Dictionary<CookGenerator, List<Cook>>();
             foreach (CookVisualisation visualisation in Instance._cookVisualisations)
-            {
                 Destroy(visualisation.gameObject);
-            }
             Instance._cookVisualisations = new List<CookVisualisation>();
             Instance.cookCountLabel.text = "0";
         }

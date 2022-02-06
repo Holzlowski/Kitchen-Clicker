@@ -960,15 +960,15 @@ PrefabInstance:
     - target: {fileID: 2382492622953367127, guid: 9b2110e9366bf4bb795245c9f4378dee, type: 3}
       propertyPath: items.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: a5e75d04673e049cba8d6454b2d056ce, type: 2}
+      objectReference: {fileID: 11400000, guid: 39bde39a9c9684074a46889372c4a2fb, type: 2}
     - target: {fileID: 2382492622953367127, guid: 9b2110e9366bf4bb795245c9f4378dee, type: 3}
       propertyPath: items.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: b39302b886f37489e8c3739a9c0b6eff, type: 2}
+      objectReference: {fileID: 11400000, guid: b954a1d96675741b1b8f4e2766b86bfa, type: 2}
     - target: {fileID: 2382492622953367127, guid: 9b2110e9366bf4bb795245c9f4378dee, type: 3}
       propertyPath: items.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 4a4070eda338d4ae0b959ff7bfabb6db, type: 2}
+      objectReference: {fileID: 11400000, guid: 671d42e54824143418d63878ce9a04bd, type: 2}
     - target: {fileID: 3577052354022749611, guid: 9b2110e9366bf4bb795245c9f4378dee, type: 3}
       propertyPath: m_text
       value: Generators

@@ -16,15 +16,18 @@ namespace Shop
         {
             _item = item;
 
-            label.text = item.name + " – " + item.Price + "₱";
+            UpdateLabel();
             icon.sprite = item.Icon;
             button.onClick.AddListener(ButtonClick);
         }
+
+        private void UpdateLabel() => label.text = _item.name + " – " + _item.Price + "₱";
 
         private void ButtonClick()
         {
             if (_item.Buy() && !_item.AllowMultiBuy)
                 Destroy(gameObject);
+            UpdateLabel();
         }
     }
 }
