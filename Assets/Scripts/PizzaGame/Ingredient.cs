@@ -1,7 +1,9 @@
+using Singletons;
 using UnityEngine;
 
 namespace PizzaGame
 {
+    [RequireComponent(typeof(AudioSource))]
     public class Ingredient : MonoBehaviour
     {
         [SerializeField] private IngredientType type;
@@ -11,6 +13,11 @@ namespace PizzaGame
         public IngredientType Type => type;
 
         public bool IsInPlace { get; set; }
+        private AudioSource audioSource;
+
+        private void Start() {
+            audioSource = GetComponent<AudioSource>();
+        }
 
         private void Update() => SelfDestruction(constraint);
 
@@ -35,6 +42,8 @@ namespace PizzaGame
             if (splashEffect != null)
             {
                 GameObject effect = Instantiate(splashEffect, transform.position, Quaternion.identity);
+                SoundEffectManager.getrandomSplashSoundEffect();
+                audioSource.Play();
                 Destroy(effect, 2);
             }
         }

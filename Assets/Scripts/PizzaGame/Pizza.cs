@@ -33,13 +33,18 @@ namespace PizzaGame
 
         public IngredientType CurrentIngredient => _currentIngredient;
 
+        private AudioSource pizzaAudio;
+
         private void Start()
         {
             SlotSpawns();
 
             _currentIngredient = _slots.Random().GetIngredientType();
             _nextIngredient = _slots.Random().GetIngredientType();
-            UIManager.ShowIngredient();
+
+            UIManager.showIngredient();
+
+            pizzaAudio = GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -160,6 +165,7 @@ namespace PizzaGame
         {
             Wallet.AddMoney(_recipe.Bonus);
             KitchenManagement.DestroyAllIngredients();
+            SoundEffectManager.getrandomCompleteSoundEffect();
             KitchenManagement.DestroyPizza();
             KitchenManagement.GenerateRandomPizza();
         }
