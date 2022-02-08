@@ -48,6 +48,11 @@ namespace Singletons
 
         public static void ShowNotification(string text) => Instance.notification.ShowNotification(text);
 
+        public static bool isStoreActive()
+        {
+            return Instance.store.activeSelf;
+        }
+
         private void Start()
         {
             if (!Camera.main)
@@ -70,7 +75,7 @@ namespace Singletons
             if (Input.GetButtonDown("Store"))
                 OpenWindow(store);
 
-            Time.timeScale = store.activeSelf ? 0 : 1;
+            //Time.timeScale = store.activeSelf ? 0 : 1;
         }
 
 

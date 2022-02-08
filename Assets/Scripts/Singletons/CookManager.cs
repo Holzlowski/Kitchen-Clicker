@@ -20,14 +20,18 @@ namespace Singletons
 
         private void Update()
         {
-            // Check if tickSeconds have passed since last tick
-            if (Time.time < _previousTick + tickSeconds)
-                return;
+            if (UIManager.isStoreActive())
+            {
+                // Check if tickSeconds have passed since last tick
+                if (Time.time < _previousTick + tickSeconds)
+                    return;
 
-            foreach (Cook cook in _cooks)
-                cook.DoTick();
+                foreach (Cook cook in _cooks)
+                    cook.DoTick();
 
-            _previousTick = Time.time;
+                _previousTick = Time.time;
+            }
+
         }
 
         public static void AddCook(float errorRate, float efficiency, CookVisualisation cookPrefab)
@@ -38,7 +42,7 @@ namespace Singletons
             // Update cook counter UI
             Instance.cookCountLabel.text = Instance._cooks.Count.ToString();
 
-            if(Instance._cooks.Count > Instance.cookPlaces.Length) return;
+            if (Instance._cooks.Count > Instance.cookPlaces.Length) return;
 
             CookVisualisation visualisation = Instantiate(cookPrefab, Instance.cookPlaces[Instance._cooks.Count - 1].position, Quaternion.identity);
             cook.HitEvent += visualisation.showHit;
@@ -48,7 +52,7 @@ namespace Singletons
         }
 
         public static void DeleteAllCooks()
-        {       
+        {
             Instance._cooks = new List<Cook>();
             foreach (CookVisualisation visualisation in Instance._cookVisualisations)
             {

@@ -136,9 +136,12 @@ namespace PizzaGame
             }
         }
 
-        private void RotatePizza(float degreesPerSecond) =>
-            transform.Rotate(new Vector3(0, degreesPerSecond, 0) * Time.deltaTime);
-
+        private void RotatePizza(float degreesPerSecond)
+        {
+            float rotationSpeed = UIManager.isStoreActive() ? 0  : degreesPerSecond;
+            transform.Rotate(new Vector3(0, rotationSpeed, 0) * Time.deltaTime);
+        }
+   
         private void IngredientSpawnWithClick()
         {
             if (!Input.GetMouseButtonDown(0) || EventSystem.current.IsPointerOverGameObject())
