@@ -42,7 +42,7 @@ namespace PizzaGame
             _currentIngredient = _slots.Random().GetIngredientType();
             _nextIngredient = _slots.Random().GetIngredientType();
 
-            UIManager.showIngredient();
+            UIManager.ShowIngredient();
 
             pizzaAudio = GetComponent<AudioSource>();
         }
