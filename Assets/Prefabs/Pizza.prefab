@@ -51,7 +51,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 94
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!65 &65697650029848121
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -112,6 +112,7 @@ MonoBehaviour:
   - {fileID: 2019838277730488214, guid: d9aecb7483dbaa348a3cd761b2f4276e, type: 3}
   - {fileID: 753863448984704855, guid: 40793ddc1e1eaf444a39c52557d37090, type: 3}
   - {fileID: 6981936232258072787, guid: 3df3b8875619e0045bdf691c1bd82b76, type: 3}
+  camOffset: 7
 --- !u!1001 &9153594220621994
 PrefabInstance:
   m_ObjectHideFlags: 0

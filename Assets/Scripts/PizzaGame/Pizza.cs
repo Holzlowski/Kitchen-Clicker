@@ -15,8 +15,12 @@ namespace PizzaGame
         [SerializeField] private int maxAttempts;
 
         [Header("Ingredient Spawn Options")] [SerializeField]
-        private float fallingDistance = 20f;        
+        private float fallingDistance = 20f;
+
         [SerializeField] private List<ParticleSystem> particleEffects = new List<ParticleSystem>();
+
+        [Header("Camera Options")] [SerializeField]
+        private float camOffset;
 
         private readonly List<Slot> _slots = new List<Slot>();
         private int _slotCount;
@@ -25,6 +29,7 @@ namespace PizzaGame
         private IngredientType _currentIngredient;
         private IngredientType _nextIngredient;
         private Camera _camera;
+        private Transform _camTransform;
 
         public IngredientType CurrentIngredient => _currentIngredient;
 
@@ -32,13 +37,11 @@ namespace PizzaGame
 
         private void Start()
         {
-            _camera = Camera.main;
-
-            ObjectToCenter();
             SlotSpawns();
 
             _currentIngredient = _slots.Random().GetIngredientType();
             _nextIngredient = _slots.Random().GetIngredientType();
+
             UIManager.showIngredient();
 
             pizzaAudio = GetComponent<AudioSource>();
@@ -72,9 +75,23 @@ namespace PizzaGame
 
             transform.localScale *= scale;
             spawnRadius *= scale;
+
+            if (!Camera.main)
+            {
+                Debug.LogError("Main camera not found");
+                return;
+            }
+
+            _camera = Camera.main;
+            _camTransform = _camera.transform;
+            PositionCamera(scale);
         }
 
-        private void ObjectToCenter() => transform.position = Vector3.zero;
+        private void PositionCamera(float pizzaScale)
+        {
+            float zoomFactor = camOffset * pizzaScale;
+            _camTransform.position = Vector3.up * zoomFactor;
+        }
 
         private void SlotSpawns()
         {
@@ -106,21 +123,21 @@ namespace PizzaGame
                 }
 
                 IngredientType randomIngredient = _recipe.GetRandomIngredient();
-                Slot slotInstance = Instantiate(randomIngredient.SlotPrefab, spawnPos, CalculateSlotRotation(spawnPos));
+                // Get slot position on pizza
+                Vector3 camPosition = _camTransform.position;
+                Vector3 direction = (spawnPos - camPosition).normalized;
+                Physics.SyncTransforms();
+                Physics.Raycast(camPosition, direction, out RaycastHit hit);
+                // Instantiate, position and initialize the slot
+                Slot slotInstance = Instantiate(randomIngredient.SlotPrefab, hit.point, Quaternion.identity);
                 slotInstance.transform.parent = transform;
                 slotInstance.Initialize(this, randomIngredient);
                 _slots.Add(slotInstance);
             }
         }
 
-        private Quaternion CalculateSlotRotation(Vector3 spawnPos)
-        {
-            Physics.Raycast(_camera.transform.position, spawnPos, out RaycastHit hit);
-            Quaternion rotation = Quaternion.LookRotation(Vector3.forward, hit.normal);
-            return rotation;
-        }
-
-        private void RotatePizza(float degreesPerSecond) => transform.Rotate(new Vector3(0, degreesPerSecond, 0) * Time.deltaTime);
+        private void RotatePizza(float degreesPerSecond) =>
+            transform.Rotate(new Vector3(0, degreesPerSecond, 0) * Time.deltaTime);
 
         private void IngredientSpawnWithClick()
         {
@@ -129,9 +146,9 @@ namespace PizzaGame
 
             Ingredient randomIngredientPrefab = _currentIngredient.Prefab;
             _currentIngredient = _nextIngredient;
-            UIManager.showIngredient();
+            UIManager.ShowIngredient();
 
-            Ray ray = KitchenManagement.GetMainCamera().ScreenPointToRay(Input.mousePosition);
+            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(ray.origin, ray.direction, Color.black, 100);
 
             if (!Physics.Raycast(ray, out RaycastHit hit))
@@ -151,6 +168,6 @@ namespace PizzaGame
             SoundEffectManager.getrandomCompleteSoundEffect();
             KitchenManagement.DestroyPizza();
             KitchenManagement.GenerateRandomPizza();
-        }   
+        }
     }
 }
