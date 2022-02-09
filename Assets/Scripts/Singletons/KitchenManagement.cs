@@ -56,7 +56,12 @@ namespace Singletons
             Instance._currentPizza.Initialize(Instance._availableRecipes.Random(), scale, Instance.slotCount);
         }
 
-        public static Sprite GetCurrentIngredientSprite() => Instance._currentPizza.CurrentIngredient.ingredientImage;
+        public static Sprite GetCurrentIngredientSprite()
+        {
+            return !Instance._currentPizza.CurrentIngredient
+                ? null
+                : Instance._currentPizza.CurrentIngredient.ingredientImage;
+        }
 
         public static void DestroyPizza()
         {
