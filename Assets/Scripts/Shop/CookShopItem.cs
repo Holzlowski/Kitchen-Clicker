@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Shop
 {
-    [CreateAssetMenu(fileName = "ShopItem", menuName = "ScriptableObjects/Cook Shop Item", order = 0)]
+    [CreateAssetMenu(fileName = "ShopItem", menuName = "ScriptableObjects/Shop Items/Cook", order = 1)]
     public class CookShopItem : ShopItem
     {
         [SerializeField] private float growthRate = 1;

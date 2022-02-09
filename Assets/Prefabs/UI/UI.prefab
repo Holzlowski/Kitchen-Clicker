@@ -888,7 +888,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
+  m_fontSize: 35.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1439,6 +1439,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2382492622953367127, guid: 9b2110e9366bf4bb795245c9f4378dee, type: 3}
+      propertyPath: items.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2382492622953367127, guid: 9b2110e9366bf4bb795245c9f4378dee, type: 3}
+      propertyPath: items.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 469b5eef20f624627a770acbf6b538e1, type: 2}
     - target: {fileID: 3577052354022749611, guid: 9b2110e9366bf4bb795245c9f4378dee, type: 3}
       propertyPath: m_text
       value: Upgrades

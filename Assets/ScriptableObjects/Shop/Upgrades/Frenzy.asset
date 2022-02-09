@@ -9,6 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b2e7fe36dc905a47bcac5de83e18e2b, type: 3}
-  m_Name: Upgrade
+  m_Script: {fileID: 11500000, guid: e1df7ff1ac083f346abeb617747792e9, type: 3}
+  m_Name: Frenzy
   m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 6d9fdf0febc9d41d280ae049b6320ba9, type: 3}
+  price: 500
+  buyable: {fileID: 11400000, guid: 29247b35d722d40d5bf8a408c0209acd, type: 2}
+  allowMultiBuy: 1
