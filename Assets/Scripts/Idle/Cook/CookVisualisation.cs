@@ -41,6 +41,7 @@ public class CookVisualisation : MonoBehaviour
         Vector3 randomOffset = new Vector3(Random.Range(-0.75f,0.75f),0,Random.Range(-0.75f,0.75f));
         Ingredient rightIngredient = Instantiate(ingredient.Prefab, throwPlace.position + randomOffset, Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
         rightIngredient.gameObject.tag = "Untagged";
+        //rightIngredient.gameObject.GetComponent<AudioSource>().volume = 0;
         rightIngredients.Push(rightIngredient);
     }
 

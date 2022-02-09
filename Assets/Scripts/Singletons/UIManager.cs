@@ -48,7 +48,7 @@ namespace Singletons
 
         public static void ShowNotification(string text) => Instance.notification.ShowNotification(text);
 
-        public static bool isStoreActive()
+        public static bool IsStoreActive()
         {
             return Instance.store.activeSelf;
         }

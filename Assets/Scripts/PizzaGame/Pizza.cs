@@ -138,7 +138,7 @@ namespace PizzaGame
 
         private void RotatePizza(float degreesPerSecond)
         {
-            float rotationSpeed = UIManager.isStoreActive() ? 0  : degreesPerSecond;
+            float rotationSpeed = UIManager.IsStoreActive() ? 0  : degreesPerSecond;
             transform.Rotate(new Vector3(0, rotationSpeed, 0) * Time.deltaTime);
         }
    

@@ -17,6 +17,8 @@ namespace Singletons
         [SerializeField] private int slotCount = 5;
         private List<Recipe> _availableRecipes;
         private bool _upgradeFlag;
+        private float upgradeTime = 15;
+        private float waitTime = 0;
 
         private void Start()
         {
@@ -94,13 +96,35 @@ namespace Singletons
 
         private IEnumerator DeceleratorUpgrade()
         {
-            while (_upgradeFlag)
+            while (_upgradeFlag && !UIManager.IsStoreActive())
             {
+                waitTime += Time.deltaTime;
+
+                Debug.Log("Geht los");
                 SetPizzaRotationSpeed(10f);
-                yield return new WaitForSeconds(15);
+                yield return new WaitUntil(() => waitTime >= upgradeTime);
+                Debug.Log("Jetzt is Schluss");
                 SetUpgradeFlag(false);
+                waitTime = 0;
                 SetPizzaRotationSpeed(25f);
             }
         }
     }
 }
+
+//  // while (waitTime < upgradeTime)
+//             // {
+//             while (_upgradeFlag && !UIManager.IsStoreActive())
+//             {
+//                 waitTime += Time.deltaTime;
+
+//                 Debug.Log("Geht los");
+//                 SetPizzaRotationSpeed(10f);
+//                 yield return new WaitForSeconds(upgradeTime);
+//                 Debug.Log("Jetzt is Schluss");
+//                 SetUpgradeFlag(false);
+//                 SetPizzaRotationSpeed(25f);
+//             }
+//             //     yield return null;
+//             // }
+//             // waitTime = 0;
