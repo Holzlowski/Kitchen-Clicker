@@ -7,17 +7,17 @@ namespace Shop
     public class ShopItem : ScriptableObject
     {
         [SerializeField] private Sprite icon;
-        [SerializeField] private int price;
-        [SerializeField] private BuyableObject buyable;
+        [SerializeField] protected int price;
+        [SerializeField] protected BuyableObject buyable;
         [SerializeField] private bool allowMultiBuy;
 
         public Sprite Icon => icon;
-        public int Price => price;
-        public bool AllowMultiBuy => allowMultiBuy;
+        public virtual int Price => price;
+        public virtual bool AllowMultiBuy => allowMultiBuy;
 
         public virtual bool Buy()
         {
-            if (!Wallet.RemoveMoney(price))
+            if (!Wallet.RemoveMoney(Price))
             {
                 UIManager.ShowNotification("Not enough money");
                 return false;
