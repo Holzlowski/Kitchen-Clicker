@@ -20,8 +20,8 @@ namespace PizzaGame
                 return;
             }
 
-            upgradeAction.AddListener(KitchenManagement.UpgradeCooldown);
             upgradeAction?.Invoke(duration);
+            KitchenManagement.UpgradeCooldown(duration);
         }
     }
 }
