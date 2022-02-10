@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Kitchen.unity
+    guid: 821a1a6b323556442895280645481b70
+  - enabled: 1
+    path: Assets/Scenes/Pizza Mini Game.unity
+    guid: 1ea06fbd76c2747d08eafffba278a839
   m_configObjects: {}
