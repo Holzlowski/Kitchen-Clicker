@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Shop
 {
-    [CreateAssetMenu(fileName = "ShopItem", menuName = "ScriptableObjects/Shop Item", order = 0)]
+    [CreateAssetMenu(fileName = "ShopItem", menuName = "ScriptableObjects/Shop Items/Generic Item", order = 0)]
     public class ShopItem : ScriptableObject
     {
         [SerializeField] private Sprite icon;

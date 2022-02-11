@@ -32,19 +32,13 @@ namespace Singletons
             };
         }
 
-        private void Update()
-        {
-            GetCurrentIngredientSprite();
-            StartCoroutine(DeceleratorUpgrade());
-        }
-
         public static int GetLevel() => Instance._level;
         public static void AddRecipe(Recipe recipe) => Instance._availableRecipes.Add(recipe);
         public static bool GetUpgradeFlag() => Instance._upgradeFlag;
         public static void SetUpgradeFlag(bool flag) => Instance._upgradeFlag = flag;
         public static float GetPizzaRotationSpeed() => Instance.degreesPerSecond;
 
-        public static void SetPizzaRotationSpeed(float degreesPerSecond) =>
+        private static void SetPizzaRotationSpeed(float degreesPerSecond) =>
             Instance.degreesPerSecond = degreesPerSecond;
 
         public static List<Recipe> GetAvailableRecipes() => Instance._availableRecipes;
@@ -97,15 +91,44 @@ namespace Singletons
 
         private static void ResetRecipes() => Instance._availableRecipes = new List<Recipe> { Instance.startRecipe };
 
-        private IEnumerator DeceleratorUpgrade()
+        public static void UpgradeCooldown(int duration)
         {
-            while (_upgradeFlag)
+            IEnumerator Coroutine()
+            {
+                Instance._upgradeFlag = true;
+                yield return new WaitForSeconds(duration);
+                Instance._upgradeFlag = false;
+            }
+
+            Instance.StartCoroutine(Coroutine());
+        }
+
+        public static void DeceleratorUpgrade(int duration)
+        {
+            IEnumerator Coroutine()
             {
                 SetPizzaRotationSpeed(10f);
-                yield return new WaitForSeconds(15);
-                SetUpgradeFlag(false);
+                yield return new WaitForSeconds(duration);
                 SetPizzaRotationSpeed(25f);
             }
+
+            Instance.StartCoroutine(Coroutine());
+        }
+
+        public static void FrenzyUpgrade(int duration)
+        {
+            float endTime = Time.time + duration;
+
+            IEnumerator Coroutine()
+            {
+                while (Time.time < endTime)
+                {
+                    Instance._currentPizza.SpawnIngredient();
+                    yield return new WaitForSeconds(0.1f);
+                }
+            }
+
+            Instance.StartCoroutine(Coroutine());
         }
     }
 }
