@@ -1,6 +1,5 @@
-using UnityEngine;
-using System.Collections.Generic;
 using System;
+using UnityEngine;
 
 namespace Shop
 {
@@ -10,30 +9,21 @@ namespace Shop
         [SerializeField] private ShopButton buyButtonPrefab;
         [SerializeField] private ShopItem[] items;
 
-        private List<ShopButton> _shopItemButtons = new List<ShopButton>();
-
         private void Start()
         {
-            CreateShopItems();
+            Array.Sort(items);
+            RecreateShopItems();
         }
 
-        public void CreateShopItems()
+        public void RecreateShopItems()
         {
-            if (_shopItemButtons.Count > 0)
-            {
-                foreach (ShopButton button in _shopItemButtons)
-                {
-                    if (button.gameObject != null) Destroy(button.gameObject);
-                }
-            }
-            _shopItemButtons = new List<ShopButton>();
+            for (int i = buyButtonView.childCount - 1; i >= 0; i--)
+                Destroy(buyButtonView.GetChild(i).gameObject);
 
-            Array.Sort(items);
             foreach (ShopItem item in items)
             {
                 ShopButton button = Instantiate(buyButtonPrefab, buyButtonView);
                 button.Initialize(item);
-                _shopItemButtons.Add(button);
             }
         }
     }

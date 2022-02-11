@@ -1,11 +1,11 @@
+using System;
 using Singletons;
 using UnityEngine;
-using System;
 
 namespace Shop
 {
     [CreateAssetMenu(fileName = "ShopItem", menuName = "ScriptableObjects/Shop Items/Generic Item", order = 0)]
-    public class ShopItem : ScriptableObject, IComparable
+    public class ShopItem : ScriptableObject, IComparable<ShopItem>
     {
         [SerializeField] private Sprite icon;
         [SerializeField] protected int price;
@@ -34,14 +34,6 @@ namespace Shop
             return true;
         }
 
-        public int CompareTo(object obj)
-        {
-            if (obj is ShopItem item) {
-                if (this.price < item.price) return -1;
-                if (this.price == item.price) return 0;
-                return 1;
-            }
-            return 1;
-        }
+        public int CompareTo(ShopItem other) => Price - other.Price;
     }
 }

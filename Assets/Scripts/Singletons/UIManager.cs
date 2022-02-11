@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Shop;
 using TMPro;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;
-using Shop;
 
 namespace Singletons
 {
@@ -91,7 +91,7 @@ namespace Singletons
 
         public static void ShowIngredient() =>
             Instance.nextIngredient.sprite = KitchenManagement.GetCurrentIngredientSprite();
-    
-        public static void RecreateShopItemList() => Instance.recipeStore.CreateShopItems();
+
+        public static void RecreateShopItemList() => Instance.recipeStore.RecreateShopItems();
     }
 }
