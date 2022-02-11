@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15c9c50a8a9b4508a9bd5e18ae8f753e, type: 3}
-  m_Name: Apprenti
+  m_Name: 3 - Chef de Partie
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 37f8599076bac482696089fcb9f9114d, type: 3}
-  price: 10
-  buyable: {fileID: 11400000, guid: 5a95f774f13f46b58170918467f8e183, type: 2}
+  icon: {fileID: 21300000, guid: 893c62fc0e01745efa20f920e32bfa69, type: 3}
+  price: 400
+  buyable: {fileID: 11400000, guid: 9dc7d4811f9439241a90e5b3297a5f96, type: 2}
   allowMultiBuy: 0
-  growthRate: 1.02
+  growthRate: 1.04
