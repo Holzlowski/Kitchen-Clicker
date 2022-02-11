@@ -4,6 +4,7 @@ using TMPro;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;
+using Shop;
 
 namespace Singletons
 {
@@ -16,6 +17,7 @@ namespace Singletons
         [SerializeField] private Camera mainCam;
         [SerializeField] private Animator camAnim;
         [SerializeField] private Image nextIngredient;
+        [SerializeField] private ShopItemList recipeStore;
 
         private static readonly List<GameObject> ActiveWindows = new List<GameObject>();
         private static readonly int CameraTurned = Animator.StringToHash("cameraTurned");
@@ -89,5 +91,7 @@ namespace Singletons
 
         public static void ShowIngredient() =>
             Instance.nextIngredient.sprite = KitchenManagement.GetCurrentIngredientSprite();
+    
+        public static void RecreateShopItemList() => Instance.recipeStore.CreateShopItems();
     }
 }
