@@ -146,7 +146,11 @@ namespace PizzaGame
         {
             if (!Input.GetMouseButtonDown(0) || EventSystem.current.IsPointerOverGameObject())
                 return;
+            SpawnIngredient();
+        }
 
+        public void SpawnIngredient()
+        {
             Ingredient randomIngredientPrefab = _currentIngredient.Prefab;
             _currentIngredient = _nextIngredient;
             UIManager.ShowIngredient();

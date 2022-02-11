@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6975806442121448095
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6055626563169235420, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055626563169235420, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055626563169235420, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055626563169235420, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055626563169235420, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055626563169235420, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055626563169235420, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055626563169235420, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055626563169235420, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055626563169235420, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055626563169235420, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864111363844696934, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
+      propertyPath: m_Name
+      value: Main Menu Pizza
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8071127611716899527, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
+    - {fileID: 1821616388, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
+    - {fileID: 65697650029848121, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
+    - {fileID: 1439443539, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
+    - {fileID: 1439443540, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 4cf1c4024cc2af246b431cb2bb446ce4, type: 3}

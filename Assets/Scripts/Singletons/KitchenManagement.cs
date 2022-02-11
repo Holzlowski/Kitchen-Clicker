@@ -17,8 +17,8 @@ namespace Singletons
         [SerializeField] private int slotCount = 5;
         private List<Recipe> _availableRecipes;
         private bool _upgradeFlag;
-        private float upgradeTime = 15;
-        private float waitTime = 0;
+
+        private const int WAIT_TIME_MULTIPLIER = 2;
 
         private void Start()
         {
@@ -34,19 +34,13 @@ namespace Singletons
             };
         }
 
-        private void Update()
-        {
-            GetCurrentIngredientSprite();
-            StartCoroutine(DeceleratorUpgrade());
-        }
-
         public static int GetLevel() => Instance._level;
         public static void AddRecipe(Recipe recipe) => Instance._availableRecipes.Add(recipe);
         public static bool GetUpgradeFlag() => Instance._upgradeFlag;
         public static void SetUpgradeFlag(bool flag) => Instance._upgradeFlag = flag;
         public static float GetPizzaRotationSpeed() => Instance.degreesPerSecond;
 
-        public static void SetPizzaRotationSpeed(float degreesPerSecond) =>
+        private static void SetPizzaRotationSpeed(float degreesPerSecond) =>
             Instance.degreesPerSecond = degreesPerSecond;
 
         public static List<Recipe> GetAvailableRecipes() => Instance._availableRecipes;
@@ -58,7 +52,12 @@ namespace Singletons
             Instance._currentPizza.Initialize(Instance._availableRecipes.Random(), scale, Instance.slotCount);
         }
 
-        public static Sprite GetCurrentIngredientSprite() => Instance._currentPizza.CurrentIngredient.ingredientImage;
+        public static Sprite GetCurrentIngredientSprite()
+        {
+            return !Instance._currentPizza.CurrentIngredient
+                ? null
+                : Instance._currentPizza.CurrentIngredient.ingredientImage;
+        }
 
         public static void DestroyPizza()
         {
@@ -94,37 +93,60 @@ namespace Singletons
 
         private static void ResetRecipes() => Instance._availableRecipes = new List<Recipe> { Instance.startRecipe };
 
-        private IEnumerator DeceleratorUpgrade()
+        public static void UpgradeCooldown(int duration)
         {
-            while (_upgradeFlag && !UIManager.IsStoreActive())
+            IEnumerator Coroutine()
             {
-                waitTime += Time.deltaTime;
+                Instance._upgradeFlag = true;
+                yield return new WaitForSeconds(duration);
+                for (int i = 0; i < duration * WAIT_TIME_MULTIPLIER; i++)
+                {
+                    while (UIManager.IsStoreActive())
+                        yield return new WaitForSeconds(0.2f);
+                    yield return new WaitForSeconds(1f / WAIT_TIME_MULTIPLIER);
+                }
+                Instance._upgradeFlag = false;
+            }
 
-                Debug.Log("Geht los");
+            Instance.StartCoroutine(Coroutine());
+        }
+
+        public static void DeceleratorUpgrade(int duration)
+        {
+            IEnumerator Coroutine()
+            {
                 SetPizzaRotationSpeed(10f);
-                yield return new WaitUntil(() => waitTime >= upgradeTime);
-                Debug.Log("Jetzt is Schluss");
-                SetUpgradeFlag(false);
-                waitTime = 0;
+                for (int i = 0; i < duration * WAIT_TIME_MULTIPLIER; i++)
+                {
+                    while (UIManager.IsStoreActive())
+                        yield return new WaitForSeconds(0.2f);
+                    yield return new WaitForSeconds(1f / WAIT_TIME_MULTIPLIER);
+                }
                 SetPizzaRotationSpeed(25f);
             }
+
+            Instance.StartCoroutine(Coroutine());
+        }
+
+        public static void FrenzyUpgrade(int duration)
+        {
+            float endTime = Time.time + duration;
+
+            IEnumerator Coroutine()
+            {
+                while (Time.time < endTime)
+                {
+                    while (UIManager.IsStoreActive())
+                    {
+                        yield return new WaitForSeconds(0.2f);
+                        endTime += 0.2f;
+                    }
+                    Instance._currentPizza.SpawnIngredient();
+                    yield return new WaitForSeconds(0.1f);
+                }
+            }
+
+            Instance.StartCoroutine(Coroutine());
         }
     }
 }
-
-//  // while (waitTime < upgradeTime)
-//             // {
-//             while (_upgradeFlag && !UIManager.IsStoreActive())
-//             {
-//                 waitTime += Time.deltaTime;
-
-//                 Debug.Log("Geht los");
-//                 SetPizzaRotationSpeed(10f);
-//                 yield return new WaitForSeconds(upgradeTime);
-//                 Debug.Log("Jetzt is Schluss");
-//                 SetUpgradeFlag(false);
-//                 SetPizzaRotationSpeed(25f);
-//             }
-//             //     yield return null;
-//             // }
-//             // waitTime = 0;

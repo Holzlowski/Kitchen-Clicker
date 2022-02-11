@@ -12,6 +12,9 @@ namespace Idle.Cook
 
         [SerializeField] private CookVisualisation cookPrefab;
 
-        public override void Buy() => CookManager.AddCook(errorRate, efficiency, cookPrefab);
+        public float ErrorRate => errorRate;
+        public float Efficiency => efficiency;
+
+        public override void Buy() => CookManager.AddCook(this, cookPrefab);
     }
 }
