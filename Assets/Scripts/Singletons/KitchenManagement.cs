@@ -18,6 +18,8 @@ namespace Singletons
         private List<Recipe> _availableRecipes;
         private bool _upgradeFlag;
 
+        private const int WAIT_TIME_MULTIPLIER = 2;
+
         private void Start()
         {
             GenerateRandomPizza();
@@ -97,6 +99,12 @@ namespace Singletons
             {
                 Instance._upgradeFlag = true;
                 yield return new WaitForSeconds(duration);
+                for (int i = 0; i < duration * WAIT_TIME_MULTIPLIER; i++)
+                {
+                    while (UIManager.IsStoreActive())
+                        yield return new WaitForSeconds(0.2f);
+                    yield return new WaitForSeconds(1f / WAIT_TIME_MULTIPLIER);
+                }
                 Instance._upgradeFlag = false;
             }
 
@@ -108,7 +116,12 @@ namespace Singletons
             IEnumerator Coroutine()
             {
                 SetPizzaRotationSpeed(10f);
-                yield return new WaitForSeconds(duration);
+                for (int i = 0; i < duration * WAIT_TIME_MULTIPLIER; i++)
+                {
+                    while (UIManager.IsStoreActive())
+                        yield return new WaitForSeconds(0.2f);
+                    yield return new WaitForSeconds(1f / WAIT_TIME_MULTIPLIER);
+                }
                 SetPizzaRotationSpeed(25f);
             }
 
@@ -123,6 +136,11 @@ namespace Singletons
             {
                 while (Time.time < endTime)
                 {
+                    while (UIManager.IsStoreActive())
+                    {
+                        yield return new WaitForSeconds(0.2f);
+                        endTime += 0.2f;
+                    }
                     Instance._currentPizza.SpawnIngredient();
                     yield return new WaitForSeconds(0.1f);
                 }

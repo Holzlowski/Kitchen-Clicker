@@ -20,6 +20,9 @@ namespace Singletons
 
         private void Update()
         {
+            if (UIManager.IsStoreActive())
+                return;
+            
             // Check if tickSeconds have passed since last tick
             if (Time.time < _previousTick + tickSeconds)
                 return;

@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace PizzaGame
 {
-    [RequireComponent(typeof(AudioSource))]
     public class Ingredient : MonoBehaviour
     {
         [SerializeField] private IngredientType type;
@@ -11,12 +10,15 @@ namespace PizzaGame
         [SerializeField] private GameObject splashEffect;
 
         public IngredientType Type => type;
-
         public bool IsInPlace { get; set; }
-        private AudioSource audioSource;
 
-        private void Start() {
-            audioSource = GetComponent<AudioSource>();
+        private bool _isVisualizedIngredient = false;
+
+        public void Initialize(bool isVisualizedIngredient)
+        {
+            _isVisualizedIngredient = isVisualizedIngredient;
+            if (_isVisualizedIngredient)
+                gameObject.tag = "Untagged";
         }
 
         private void Update() => SelfDestruction(constraint);
@@ -42,8 +44,8 @@ namespace PizzaGame
             if (splashEffect != null)
             {
                 GameObject effect = Instantiate(splashEffect, transform.position, Quaternion.identity);
-                SoundEffectManager.getrandomSplashSoundEffect();
-                audioSource.Play();
+                if (!_isVisualizedIngredient)
+                    SoundEffectManager.getrandomSplashSoundEffect();
                 Destroy(effect, 2);
             }
         }
