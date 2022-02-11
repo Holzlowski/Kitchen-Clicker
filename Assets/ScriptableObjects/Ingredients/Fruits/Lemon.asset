@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9adba283ce34fdeb264654670c9ed25, type: 3}
   m_Name: Lemon
   m_EditorClassIdentifier: 
-  value: 0
+  value: 17
   prefab: {fileID: -8520925537937780161, guid: 71c34d54811b0344093b1ce5e7dc91cd, type: 3}
   slotPrefab: {fileID: -9161951220240674224, guid: 7217058baedcd4390a6490a2e510d79e, type: 3}
   sprite: {fileID: 21300000, guid: f6d5f58465fff456eb84bd071b3134b9, type: 3}

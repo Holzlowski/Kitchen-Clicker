@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9adba283ce34fdeb264654670c9ed25, type: 3}
   m_Name: PotStewLid
   m_EditorClassIdentifier: 
-  value: 0
+  value: 15
   prefab: {fileID: 2144905141036946615, guid: e591bcbe0999dc342a21464811ee9129, type: 3}
   slotPrefab: {fileID: 4435683670731702188, guid: 87faf99858e84446ab78c155b5951365, type: 3}
   sprite: {fileID: 21300000, guid: b7ab15e6012164a6397796d58640399b, type: 3}

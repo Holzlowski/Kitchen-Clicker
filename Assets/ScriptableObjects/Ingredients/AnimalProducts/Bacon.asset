@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9adba283ce34fdeb264654670c9ed25, type: 3}
   m_Name: Bacon
   m_EditorClassIdentifier: 
-  value: 0
+  value: 8
   prefab: {fileID: 6165825284451643073, guid: 8ab2238b78414924eb773d5ddbe58cd0, type: 3}
   slotPrefab: {fileID: 6565563835028559035, guid: fe987584e82584c43bb351a3e99198cd, type: 3}
   sprite: {fileID: 21300000, guid: 6296e4b1e1bac418193950916fde7248, type: 3}

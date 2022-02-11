@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9adba283ce34fdeb264654670c9ed25, type: 3}
   m_Name: Tomato
   m_EditorClassIdentifier: 
-  value: 0
+  value: 1
   prefab: {fileID: -6901051516627106864, guid: d77242c09df1722488268f9c3388c7ec, type: 3}
   slotPrefab: {fileID: -1498390894676404701, guid: b1cc654add3ff4dadadc736c846490e2, type: 3}
   sprite: {fileID: 21300000, guid: bb7faf4c850ef48cdb33c2bd17737619, type: 3}

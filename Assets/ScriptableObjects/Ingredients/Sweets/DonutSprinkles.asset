@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9adba283ce34fdeb264654670c9ed25, type: 3}
   m_Name: DonutSprinkles
   m_EditorClassIdentifier: 
-  value: 10
+  value: 20
   prefab: {fileID: 4011821239471122948, guid: 82f6942502302c845a4aebe3cd646728, type: 3}
   slotPrefab: {fileID: 3832511185598058498, guid: 15234f6d7fe8649de8870817bd54f63a, type: 3}
   sprite: {fileID: 21300000, guid: af57cefb9e21e441da779138dfbfc9d1, type: 3}

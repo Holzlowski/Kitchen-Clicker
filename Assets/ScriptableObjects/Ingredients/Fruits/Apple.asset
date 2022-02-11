@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9adba283ce34fdeb264654670c9ed25, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: 
-  value: 0
+  value: 10
   prefab: {fileID: -1608920133161287366, guid: 1fd49362c02d91c40abaa687805ed22c, type: 3}
   slotPrefab: {fileID: -2620758705020992727, guid: ae4a8d0fadb68473a84b006394705268, type: 3}
   sprite: {fileID: 21300000, guid: 2aa6ab62866ce4439ab7303f7da55e51, type: 3}

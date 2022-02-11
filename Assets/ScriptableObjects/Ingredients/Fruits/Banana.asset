@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9adba283ce34fdeb264654670c9ed25, type: 3}
   m_Name: Banana
   m_EditorClassIdentifier: 
-  value: 0
+  value: 19
   prefab: {fileID: 8683465364005800934, guid: 670dd2b5258c7c849ad55d8413967fbd, type: 3}
   slotPrefab: {fileID: 6631428773780840257, guid: d90cade6f372341e09c040993548c6c7, type: 3}
   sprite: {fileID: 21300000, guid: bcb89e98658664060a22de34ca179e8c, type: 3}

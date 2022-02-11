@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2288a14f5eeafd47a7c8259e6c35266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelBreakPoint: 1000
+  _levelBreakPoint: 100000
 --- !u!114 &8026143441110230777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   degreesPerSecond: 25
-  slotCount: 5
+  slotCount: 9
 --- !u!114 &7283494669705759169
 MonoBehaviour:
   m_ObjectHideFlags: 0
