@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15ff88d5fe614bc886d7ff63cf3483c3, type: 3}
   m_Name: Cook Lvl. 2
   m_EditorClassIdentifier: 
-  errorRate: 0.5
-  efficiency: 0.3
+  errorRate: 0.3
+  efficiency: 0.8
   cookPrefab: {fileID: 2905518609499661210, guid: dd5a7ef113eb6ff41a2c11c11091306d, type: 3}

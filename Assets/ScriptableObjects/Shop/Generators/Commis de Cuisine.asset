@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1365a7e5d69a4e7e82b7df55ac742f77, type: 3}
-  m_Name: 5 - Fruit (Recipe)
+  m_Script: {fileID: 11500000, guid: 15c9c50a8a9b4508a9bd5e18ae8f753e, type: 3}
+  m_Name: Commis de Cuisine
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: b08e3bff0539142f2afea50599976646, type: 3}
-  price: 10
-  buyable: {fileID: 11400000, guid: 8bde5d955a74d314182ac6fe4fa39503, type: 2}
+  icon: {fileID: 21300000, guid: f45830b7fd79c4a1b985a7311aca7c9f, type: 3}
+  price: 350
+  buyable: {fileID: 11400000, guid: c7864f91b3c36df4ea25a29895546fa2, type: 2}
   allowMultiBuy: 0
+  growthRate: 1.03

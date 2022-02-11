@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1365a7e5d69a4e7e82b7df55ac742f77, type: 3}
-  m_Name: 2 - Salami (Recipe)
+  m_Name: Mazza
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: b08e3bff0539142f2afea50599976646, type: 3}
-  price: 10
-  buyable: {fileID: 11400000, guid: 66022f8bf5b1d42c394518dcf39b7744, type: 2}
+  price: 200
+  buyable: {fileID: 11400000, guid: 69d9d6e1c43f11146a9793786481a5b7, type: 2}
+  allowMultiBuy: 0
