@@ -93,5 +93,6 @@ namespace Singletons
             Instance.nextIngredient.sprite = KitchenManagement.GetCurrentIngredientSprite();
 
         public static void RecreateShopItemList() => Instance.recipeStore.RecreateShopItems();
+        public static int GetLengthShopRecipes() => Instance.recipeStore.GetLengthItems();
     }
 }

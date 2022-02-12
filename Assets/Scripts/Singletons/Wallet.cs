@@ -11,10 +11,7 @@ namespace Singletons
 
         public static void AddMoney(int amount)
         {
-            Instance._money += amount;
-            if (Instance._money > Instance._levelBreakPoint) {
-                KitchenManagement.LevelUp();
-            }
+            ChangeMoney(amount);
         }
 
         public static bool RemoveMoney(int amount)
@@ -22,12 +19,22 @@ namespace Singletons
             if (Instance._money < amount)
                 return false;
 
-            Instance._money -= amount;
+            ChangeMoney(-amount);
             return true;
         }
 
+        private static void ChangeMoney(int amount)
+        {
+            Instance._money += amount;
+            if (Instance._money > Instance._levelBreakPoint && 
+                KitchenManagement.GetLengthAvailableRecipes() == UIManager.GetLengthShopRecipes())
+            {
+                KitchenManagement.LevelUp();
+            }
+        }
+
         public static void ResetWallet()
-        {       
+        {
             Instance._money = 0;
         }
     }

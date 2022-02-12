@@ -26,5 +26,7 @@ namespace Shop
                 button.Initialize(item);
             }
         }
+
+        public int GetLengthItems() => items.Length;
     }
 }

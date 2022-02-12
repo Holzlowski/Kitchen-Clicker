@@ -35,6 +35,7 @@ namespace Singletons
         }
 
         public static int GetLevel() => Instance._level;
+        public static int GetLengthAvailableRecipes() => Instance._availableRecipes.Count;
         public static void AddRecipe(Recipe recipe) => Instance._availableRecipes.Add(recipe);
         public static bool GetUpgradeFlag() => Instance._upgradeFlag;
         public static void SetUpgradeFlag(bool flag) => Instance._upgradeFlag = flag;
