@@ -22,7 +22,7 @@ namespace Singletons
         {
             if (UIManager.IsStoreActive())
                 return;
-            
+
             // Check if tickSeconds have passed since last tick
             if (Time.time < _previousTick + tickSeconds)
                 return;
@@ -44,13 +44,14 @@ namespace Singletons
                 Instance._cooks.Add(generator, new List<Cook>());
             Instance._cooks[generator].Add(cook);
 
+            int cookCount = Instance._cooks.SelectMany(c => c.Value).Count();
             // Update cook counter UI
-            Instance.cookCountLabel.text = Instance._cooks.SelectMany(c => c.Value).Count().ToString();
+            Instance.cookCountLabel.text = cookCount.ToString();
 
-            if (Instance._cooks.Count > Instance.cookPlaces.Length) return;
+            if (cookCount > Instance.cookPlaces.Length) return;
 
             CookVisualisation visualisation = Instantiate(cookPrefab,
-                Instance.cookPlaces[Instance._cooks.Count - 1].position, Quaternion.identity);
+                Instance.cookPlaces[cookCount - 1].position, Quaternion.identity);
             cook.HitEvent += visualisation.showHit;
             cook.MissEvent += visualisation.missHit;
             cook.CompletedEvent += _ => visualisation.pizzaComplete();
