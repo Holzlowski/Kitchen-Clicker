@@ -18,6 +18,7 @@ namespace Singletons
         [SerializeField] private Animator camAnim;
         [SerializeField] private Image nextIngredient;
         [SerializeField] private ShopItemList recipeStore;
+        [SerializeField] private ShopItemList generatorStore;
 
         private static readonly List<GameObject> ActiveWindows = new List<GameObject>();
         private static readonly int CameraTurned = Animator.StringToHash("cameraTurned");
@@ -94,5 +95,10 @@ namespace Singletons
 
         public static void RecreateShopItemList() => Instance.recipeStore.RecreateShopItems();
         public static int GetLengthShopRecipes() => Instance.recipeStore.GetLengthItems();
+
+        public static void UpdateShopPrices()
+        {
+            Instance.generatorStore.UpdatePrices();
+        }
     }
 }

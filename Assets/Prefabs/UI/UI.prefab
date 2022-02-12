@@ -498,6 +498,7 @@ MonoBehaviour:
   camAnim: {fileID: 0}
   nextIngredient: {fileID: 8461613823196318019}
   recipeStore: {fileID: 7580108788231970651}
+  generatorStore: {fileID: 4146613008491248575}
 --- !u!1 &1773269148734561995
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,7 +890,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.45
+  m_fontSize: 35.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1098,6 +1099,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9076637996939436555, guid: 9b2110e9366bf4bb795245c9f4378dee, type: 3}
   m_PrefabInstance: {fileID: 1773269148227190248}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4146613008491248575 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2382492622953367127, guid: 9b2110e9366bf4bb795245c9f4378dee, type: 3}
+  m_PrefabInstance: {fileID: 1773269148227190248}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230705880689068726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddf2e17887824746bf15c9f257adba12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1773269148230735374
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1919,9 +1931,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd38435615da041028804d17250eec8e, type: 3}
---- !u!114 &7800569857521392978 stripped
+--- !u!114 &6988041301247785753 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2009794336274934785, guid: fd38435615da041028804d17250eec8e, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1684217833242561098, guid: fd38435615da041028804d17250eec8e, type: 3}
   m_PrefabInstance: {fileID: 8621307748193988947}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -1930,9 +1942,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6988041301247785753 stripped
+--- !u!114 &7800569857521392978 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1684217833242561098, guid: fd38435615da041028804d17250eec8e, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2009794336274934785, guid: fd38435615da041028804d17250eec8e, type: 3}
   m_PrefabInstance: {fileID: 8621307748193988947}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

@@ -81,6 +81,7 @@ namespace Singletons
             Wallet.ResetWallet();
             CookManager.DeleteAllCooks();
             UIManager.RecreateShopItemList();
+            UIManager.UpdateShopPrices();
 
             IEnumerator NextLevel()
             {
@@ -107,6 +108,7 @@ namespace Singletons
                         yield return new WaitForSeconds(0.2f);
                     yield return new WaitForSeconds(1f / WAIT_TIME_MULTIPLIER);
                 }
+
                 Instance._upgradeFlag = false;
             }
 
@@ -124,6 +126,7 @@ namespace Singletons
                         yield return new WaitForSeconds(0.2f);
                     yield return new WaitForSeconds(1f / WAIT_TIME_MULTIPLIER);
                 }
+
                 SetPizzaRotationSpeed(25f);
             }
 
@@ -143,6 +146,7 @@ namespace Singletons
                         yield return new WaitForSeconds(0.2f);
                         endTime += 0.2f;
                     }
+
                     Instance._currentPizza.SpawnIngredient();
                     yield return new WaitForSeconds(0.1f);
                 }

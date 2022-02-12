@@ -21,7 +21,7 @@ namespace Shop
             button.onClick.AddListener(ButtonClick);
         }
 
-        private void UpdateLabel() => label.text = _item.name + " – " + _item.Price + "₱";
+        public void UpdateLabel() => label.text = _item.name + " – " + _item.Price + "₱";
 
         private void ButtonClick()
         {

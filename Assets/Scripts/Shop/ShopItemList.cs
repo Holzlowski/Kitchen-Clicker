@@ -28,5 +28,11 @@ namespace Shop
         }
 
         public int GetLengthItems() => items.Length;
+
+        public void UpdatePrices()
+        {
+            for (int i = 0; i < buyButtonView.childCount; i++)
+                buyButtonView.GetChild(i).GetComponent<ShopButton>().UpdateLabel();
+        }
     }
 }
