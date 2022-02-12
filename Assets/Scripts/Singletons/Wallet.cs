@@ -26,8 +26,8 @@ namespace Singletons
         private static void ChangeMoney(int amount)
         {
             Instance._money += amount;
-            if (Instance._money > Instance._levelBreakPoint && 
-                KitchenManagement.GetLengthAvailableRecipes() == UIManager.GetLengthShopRecipes())
+            if (Instance._money > Instance._levelBreakPoint &&
+                KitchenManagement.GetLengthAvailableRecipes() > UIManager.GetLengthShopRecipes())
             {
                 KitchenManagement.LevelUp();
             }
