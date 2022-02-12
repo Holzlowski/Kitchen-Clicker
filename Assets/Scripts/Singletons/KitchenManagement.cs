@@ -79,6 +79,7 @@ namespace Singletons
             ResetRecipes();
             Wallet.ResetWallet();
             CookManager.DeleteAllCooks();
+            UIManager.RecreateShopItemList();
 
             IEnumerator NextLevel()
             {
